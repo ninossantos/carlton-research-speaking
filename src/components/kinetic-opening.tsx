@@ -71,6 +71,11 @@ export function KineticOpening({ talk }: { talk: Talk }) {
     setPlaying(false);
   }
 
+  function play() {
+    if (now >= duration) return;
+    setPlaying(true);
+  }
+
   function replay() {
     setNow(0);
     nowRef.current = 0;
@@ -94,6 +99,15 @@ export function KineticOpening({ talk }: { talk: Talk }) {
             onClick={pause}
           >
             Pause
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            className="no-print"
+            disabled={playing || now >= duration}
+            onClick={play}
+          >
+            Play
           </Button>
           <Button variant="outline" size="sm" className="no-print" onClick={replay}>
             Replay
