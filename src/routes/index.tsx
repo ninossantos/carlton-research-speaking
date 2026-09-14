@@ -139,7 +139,6 @@ function Home() {
             {TERMS.inPersonPoints.map((line) => (
               <li key={line}>{line}</li>
             ))}
-            <li>{TERMS.hold}</li>
             <li>{TERMS.geoPrice}</li>
             <li>{TERMS.notCle}</li>
             <li>{TERMS.notDiagnostic}</li>
