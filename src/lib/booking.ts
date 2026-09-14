@@ -22,7 +22,7 @@ export const TERMS = {
   travel: "Travel is quoted for the city named, from Phoenix, Arizona. Travel is non-refundable. Travel plus the speaking fee must both be paid before the date locks.",
   hold: `In-person holds ${IN_PERSON_HOLD_DAYS} full calendar days: travel plus the hour.`,
   availability: "TidyCal shows in-person availability only. A travel quote follows the city you name. The date locks when both fees clear.",
-  notCle: "Not a CLE. A CLE follows the book.",
+  notCle: "Not a CLE.",
   notDiagnostic: "Not diagnostic of a pattern of coercive control. Not legal advice.",
   notClinical:
     "Carlton Research does not perform clinical evaluations and does not recommend parenting time.",

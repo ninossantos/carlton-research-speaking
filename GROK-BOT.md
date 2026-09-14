@@ -34,7 +34,7 @@ After a TidyCal in-person hold, send the travel quote within two business days. 
 - No em dashes or en dashes
 - American English
 - Codebook is Title Case
-- Not a CLE. A CLE follows the book.
+- Not a CLE.
 - Footer: Not diagnostic of a pattern of coercive control. Not legal advice. Carlton Research does not perform clinical evaluations and does not recommend parenting time.
 
 ## Brand

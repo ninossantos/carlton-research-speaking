@@ -69,9 +69,9 @@ function Home() {
             Sixty minutes: presentation plus questions.
           </p>
           <p className="mx-auto mt-4 max-w-xl text-sm text-muted">
-            For attorneys, judges, office managers, and human resources. Remote or in person. Not a
-            CLE. A CLE follows the book.
+            For attorneys, judges, evaluators, and treatment providers.
           </p>
+          <p className="mx-auto mt-2 max-w-xl text-sm text-muted">Remote or in person. Not a CLE.</p>
         </section>
 
         <section aria-labelledby="rooms-heading">
