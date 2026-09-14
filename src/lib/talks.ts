@@ -76,7 +76,7 @@ export const TALKS: Talk[] = [
     id: "high-conflict",
     title: "Distinguish High Conflict from Coercive Control",
     short: "High Conflict from Coercive Control",
-    promise: "Conflict is episodic and bilateral. Coercive control is directional and cumulative. The hour teaches to distinguish them.",
+    promise: "Conflict is episodic and bilateral. Coercive control is directional and cumulative. The presentation teaches to distinguish them.",
     takeaways: [
       "Conflict is not evidence of coercive control.",
       "High conflict can be loud, mutual, and still fail every prong of a pattern.",
@@ -106,9 +106,9 @@ export const TALKS: Talk[] = [
     short: "Mapping a Pattern of Coercive Control",
     promise: "How to map repetition, relatedness, continuity, and asymmetry to form a pattern or disprove a pattern.",
     takeaways: [
-      "Read texts, email, location logs, financial controls, and litigation history in sequence.",
-      "Isolated or clustered behaviors do not establish a pattern.",
-      "A pattern must meet four prongs: repetition, relatedness, continuity, and asymmetry. Findings map to peer-reviewed literature.",
+      "A pattern must meet four prongs: repetition, relatedness, continuity, and asymmetry.",
+      "How to establish repetition and continuity.",
+      "How to delineate the difference between anomalies, clusters, and patterns.",
     ],
     artifacts: ["Texts", "Email", "Location logs", "Financial controls", "Filings"],
     opening: [
@@ -165,14 +165,14 @@ export const TALKS: Talk[] = [
     promise:
       "Contact us with questions you would like answered at your Lunch & Learn.",
     takeaways: [
-      "Send the questions you want the hour to answer.",
-      "The hour stays sixty minutes: presentation plus questions.",
+      "Name the questions this presentation must answer.",
+      "The presentation stays sixty minutes: presentation plus questions.",
       "The four prongs still decide whether a pattern holds.",
     ],
-    artifacts: ["Your questions", "Your file", "Your audience", "The hour"],
+    artifacts: ["Your questions", "Your file", "Your audience", "The presentation"],
     opening: [
       { at: 0, line: "Bring the questions.", prongs: [false, false, false, false], visual: "split" },
-      { at: 2600, line: "Name what the hour must answer.", prongs: [false, false, false, false], visual: "split" },
+      { at: 2600, line: "Name the topic.", prongs: [false, false, false, false], visual: "split" },
       { at: 5400, line: "Sixty minutes. Presentation plus questions.", prongs: [false, false, false, false], visual: "split" },
       { at: 8600, line: "The four prongs still gate the claim.", prongs: [false, false, false, false], visual: "split" },
       { at: 11800, line: "Repetition: does the conduct return?", prongs: [true, false, false, false], visual: "lock" },
@@ -181,7 +181,7 @@ export const TALKS: Talk[] = [
       { at: 20200, line: "Asymmetry: does one party organize the field?", prongs: [true, true, true, true], visual: "lock" },
       {
         at: 23600,
-        line: "A custom hour still has to earn a pattern.",
+        line: "A custom presentation still has to earn a pattern.",
         prongs: [true, true, true, true],
         visual: "lock",
       },
