@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /invite
+Disallow: /invite/
+
+User-agent: Googlebot
+Disallow: /invite
+Disallow: /invite/

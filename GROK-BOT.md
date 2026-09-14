@@ -11,7 +11,7 @@ This repository is the speaking app. This is not the Coercive Control Observator
 ## Task
 
 1. Deploy this repository so https://speaking.carltonresearch.com/ serves the app. Same Cloudflare CNAME pattern as instruments and tracker. Cloudways hosts WordPress only.
-2. WordPress (Kadence, Cloudways): add one menu item. Title: Lunch & Learn. URL: https://speaking.carltonresearch.com/
+2. WordPress (Kadence, Cloudways): add one menu item. Title: Lunch & Learn. URL: https://speaking.carltonresearch.com/  Do not add `/invite` to any WordPress menu.
 3. Do not iframe this app. Do not paste React source into WordPress. Do not add a second menu item. Do not put Lunch & Learn inside Observatory, Instruments, or Tracker navigation as a tab of those products.
 4. Do not mention Fenlowe Press anywhere.
 5. Log into TidyCal Pro and create the two Lunch & Learn booking types exactly as specified below. Paste the public URLs into `src/lib/booking.ts`. Commit and deploy.
@@ -64,7 +64,7 @@ Stripe must already be connected at **Integrations > Payments**. Remote charges 
 1. Organization: short text, required
 2. Audience: dropdown, required. Options: Attorneys / Judges / Evaluators / Treatment Providers
 3. Topic: dropdown, required. Options: Distinguish High Conflict from Coercive Control / Mapping a Pattern of Coercive Control / Incident-Model vs Pattern-Model of Coercive Control / Customize Your Presentation
-4. Questions for the hour: long text, not required
+4. Your topic: short text, not required. If the booker chose Customize Your Presentation, they insert their topic here. Do not treat the dropdown label as the topic.
 
 TidyCal already collects name and email. Do not duplicate those.
 
@@ -76,7 +76,7 @@ URL (paste exactly):
 https://speaking.carltonresearch.com/invite?name={{contact.name}}&email={{contact.email}}&date={{booking.date}}&time={{booking.time}}&format=remote
 ```
 
-This redirect is the whole point of remote: TidyCal takes the $750, then sends the host to Build an Invite.
+This redirect is the whole point of remote: TidyCal takes the $750, then sends the host to the unlisted invitation page.
 
 Save. Copy the public booking URL. It looks like `https://tidycal.com/<username>/lunch-and-learn-remote`.
 
@@ -90,7 +90,7 @@ Save. Copy the public booking URL. It looks like `https://tidycal.com/<username>
 | URL slug | lunch-and-learn-in-person |
 | Description | 60 minutes: presentation plus questions. Fee $1,500 plus travel expenses. Two days are held to accommodate travel: the day of the presentation plus one day before for travel. TidyCal shows availability only. Payment confirms the date. Travel quoted for the presentation location. Travel fees paid upon booking are non-refundable. Speaking fee is refundable if canceled 14 days in advance. Outside the USA, ask for in-person prices. Not a CLE. |
 | Calendar | Same Google Calendar |
-| Duration | 60 minutes (this is the presentation hour, not the travel day) |
+| Duration | 60 minutes (this is the presentation, not the travel day) |
 | Location | Custom location / in person. Text: Presentation location named by the host. Travel quoted after the city is named. |
 | Pricing | Free. $0. Do not collect $1,500 in TidyCal. Do not collect travel in TidyCal. |
 | How far in advance | 180 days |
@@ -112,7 +112,7 @@ Save. Copy the public booking URL. It looks like `https://tidycal.com/<username>
 2. Audience: dropdown, required. Same four options as remote
 3. Topic: dropdown, required. Same four topics as remote
 4. City and state of the presentation: short text, required
-5. Questions for the hour: long text, not required
+5. Your topic: short text, not required. If the booker chose Customize Your Presentation, they insert their topic here. Do not treat the dropdown label as the topic.
 
 Save. Copy the public booking URL. It looks like `https://tidycal.com/<username>/lunch-and-learn-in-person`.
 
@@ -142,7 +142,18 @@ Edit `src/lib/booking.ts`:
 - `TIDYCAL_REMOTE` = the public remote URL
 - `TIDYCAL_IN_PERSON` = the public in-person URL
 
-Commit. Deploy. Until those strings are non-empty, the Book the Hour doors fall back to mailto:carisa@carltonresearch.com with the packet in the body.
+Commit. Deploy. Until those strings are non-empty, the Book the Presentation doors fall back to mailto:carisa@carltonresearch.com with the packet in the body.
+
+### Invitation page is unlisted and not indexed
+
+`https://speaking.carltonresearch.com/invite` is a private tool for hosts who have already booked.
+
+- Do not link `/invite` from the speaking page, header, footer, WordPress, Observatory, Instruments, Tracker, or any sitemap.
+- Do not add it to Google Search Console.
+- `public/robots.txt` already has `Disallow: /invite`. Keep that.
+- The invite route already sends `<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">`.
+- In Cloudflare, add a Configuration Rule: URI Path contains `/invite` then set response header `X-Robots-Tag` = `noindex, nofollow, noarchive`.
+- The only paths to this page: TidyCal remote redirect after payment, and a private email after in-person fees clear.
 
 ### Verify before handing off
 
@@ -159,6 +170,7 @@ Commit. Deploy. Until those strings are non-empty, the Book the Hour doors fall 
 - Do not turn on redirect for in-person.
 - Do not mention Fenlowe Press.
 - Do not create a third booking type for CLE.
+- Do not link `/invite` from any public page.
 
 ## Copy rules already in the app
 
