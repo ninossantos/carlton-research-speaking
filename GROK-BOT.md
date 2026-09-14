@@ -24,9 +24,27 @@ Edit `src/lib/booking.ts`:
 
 Until those strings are non-empty, the booking doors fall back to mailto:carisa@carltonresearch.com with the packet in the body.
 
-TidyCal intake fields to collect: organization, host name, email, talk title, who attends (attorney / judge / office manager / human resources), city (in-person only), preferred week.
+TidyCal intake fields to collect: organization, host name, email, talk title, audience (attorneys / judges / evaluators / treatment providers), city (in-person only), preferred week.
 
 After a TidyCal in-person hold, send the travel quote within two business days. The date locks when both the $1,500 and the quoted travel clear.
+
+## Invite after payment
+
+The invite does not live on the homepage. Hosts build it at https://speaking.carltonresearch.com/invite after the date locks and the fee clears.
+
+TidyCal can redirect there. Redirect requires TidyCal Individual ($29 lifetime), Pro, or Agency. Free TidyCal cannot redirect. If the account is on Free, put the invite URL in the confirmation email instead. Do not add a new platform.
+
+For the remote paid booking type:
+
+1. Booking types → edit the remote event → Advanced → Notifications.
+2. Toggle Redirect to custom page after booking.
+3. URL:
+
+`https://speaking.carltonresearch.com/invite?name={{contact.name}}&email={{contact.email}}&date={{booking.date}}&time={{booking.time}}&format=remote`
+
+For the in-person availability type, do not auto-redirect. Travel and the speaking fee have not cleared yet. After both fees clear, email the host:
+
+`https://speaking.carltonresearch.com/invite?format=in-person`
 
 ## Copy rules already in the app
 

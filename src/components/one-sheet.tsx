@@ -56,7 +56,7 @@ export function OneSheet({ input }: { input: PacketInput }) {
             The Hour
           </caption>
           <tbody>
-            <Row k="Audience" v={role ? role.label : "Name the role in the architect"} />
+            <Row k="Audience" v={role ? role.label : "Select your audience"} />
             <Row
               k="Format"
               v={
@@ -119,7 +119,7 @@ export function OneSheet({ input }: { input: PacketInput }) {
         </blockquote>
       ) : (
         <p className="no-print text-sm text-muted">
-          Finish the architect: role, format, organization, name, and email
+          Finish the details: audience, format, organization, name, and email
           {input.format === "in-person" ? ", plus city" : ""}.
         </p>
       )}

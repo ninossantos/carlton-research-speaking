@@ -4,16 +4,11 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { RoomPicker } from "@/components/room-picker";
 import { KineticOpening } from "@/components/kinetic-opening";
-import { InviteArchitect } from "@/components/invite-architect";
-import { OneSheet } from "@/components/one-sheet";
+import { BookingIntake } from "@/components/invite-architect";
 import { BookingPanel } from "@/components/booking-panel";
 import { hydrateBriefing, useBriefing } from "@/lib/store";
 import { TERMS } from "@/lib/booking";
-import { PRONGS, TALKS, talkById, type TalkId } from "@/lib/talks";
-
-function isTalkId(v: unknown): v is TalkId {
-  return TALKS.some((t) => t.id === v);
-}
+import { PRONGS, isTalkId, talkById, type TalkId } from "@/lib/talks";
 
 export const Route = createFileRoute("/")({
   validateSearch: (search: Record<string, unknown>) => ({
@@ -118,21 +113,17 @@ function Home() {
           </section>
         ) : null}
 
-        <InviteArchitect />
-
-        <section aria-labelledby="sheet-heading">
-          <h2 id="sheet-heading" className="text-2xl">
-            One-Sheet
-          </h2>
-          <p className="mt-2 max-w-2xl text-muted">
-            Forward this page or print the sheet. The blurb is a letter you can paste.
-          </p>
-          <div className="mt-6">
-            <OneSheet input={packet} />
-          </div>
-        </section>
+        <BookingIntake />
 
         <BookingPanel input={packet} />
+
+        <p className="text-sm text-muted">
+          After the date locks and the fee clears,{" "}
+          <a href="/invite" className="text-primary underline underline-offset-4 hover:text-ink">
+            build an invite
+          </a>
+          .
+        </p>
 
         <section aria-labelledby="terms-heading" className="border-t border-border pt-10">
           <h2 id="terms-heading" className="text-2xl">

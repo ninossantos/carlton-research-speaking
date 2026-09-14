@@ -8,13 +8,19 @@ const practiceNav = [
   { href: `${FIRM_ORIGIN}/contact/`, label: "Contact" },
 ] as const;
 
-export function SiteHeader() {
+export function SiteHeader({
+  bookHref = "#book",
+  current = true,
+}: {
+  bookHref?: string;
+  current?: boolean;
+}) {
   return (
     <header className="border-b border-border bg-bg">
       <nav aria-label="Carlton Research" className="border-b border-border">
         <div className="mx-auto flex max-w-6xl items-stretch gap-5 overflow-x-auto px-5 sm:px-8">
           {practiceNav.map((item) =>
-            "current" in item && item.current ? (
+            current && "current" in item && item.current ? (
               <a
                 key={item.label}
                 href={item.href}
@@ -53,7 +59,7 @@ export function SiteHeader() {
           </span>
         </a>
         <a
-          href="#book"
+          href={bookHref}
           className="shrink-0 text-sm font-semibold text-primary underline underline-offset-4 hover:text-ink"
         >
           Book the hour

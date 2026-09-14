@@ -1,5 +1,5 @@
 export type TalkId = "high-conflict" | "map-pattern" | "incident-vs-pattern" | "customize";
-export type RoleId = "attorney" | "judge" | "office-manager" | "hr";
+export type RoleId = "attorney" | "judge" | "evaluator" | "treatment-provider";
 export type FormatId = "remote" | "in-person";
 
 export type Prong = {
@@ -51,23 +51,23 @@ export const PRONGS: Prong[] = [
 export const ROLES: { id: RoleId; label: string; lens: string }[] = [
   {
     id: "attorney",
-    label: "Attorney",
+    label: "Attorneys",
     lens: "What a file can prove, and what a file cannot.",
   },
   {
     id: "judge",
-    label: "Judge",
+    label: "Judges",
     lens: "A testable pattern, not a story of conflict.",
   },
   {
-    id: "office-manager",
-    label: "Office Manager",
-    lens: "What to keep, what to date-stamp, what not to characterize.",
+    id: "evaluator",
+    label: "Evaluators",
+    lens: "The evaluation must test a course of conduct, not a single incident.",
   },
   {
-    id: "hr",
-    label: "Human Resources",
-    lens: "Personnel files often already hold the sequence. Incident reports miss a course of conduct.",
+    id: "treatment-provider",
+    label: "Treatment Providers",
+    lens: "The treatment file must track a course of conduct, not a single incident.",
   },
 ];
 
@@ -197,6 +197,14 @@ export function roleById(id: RoleId | null) {
   return ROLES.find((r) => r.id === id) ?? null;
 }
 
-export function titleCasePreserve(title: string) {
-  return title;
+export function isTalkId(v: unknown): v is TalkId {
+  return TALKS.some((t) => t.id === v);
+}
+
+export function isRoleId(v: unknown): v is RoleId {
+  return ROLES.some((r) => r.id === v);
+}
+
+export function isFormatId(v: unknown): v is FormatId {
+  return v === "remote" || v === "in-person";
 }

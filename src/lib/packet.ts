@@ -1,11 +1,7 @@
 import {
   CONTACT_EMAIL,
   FIRM,
-  IN_PERSON_FEE,
-  IN_PERSON_HOLD_DAYS,
-  NOTICE_DAYS,
   PRINCIPAL,
-  REMOTE_FEE,
   TERMS,
 } from "@/lib/booking";
 import { roleById, talkById, type FormatId, type RoleId, type TalkId } from "@/lib/talks";
@@ -50,27 +46,20 @@ export function inviteBlurb(input: PacketInput) {
       : input.city.trim()
         ? `in person in ${input.city.trim()}`
         : "in person";
-  const fee =
-    input.format === "remote"
-      ? `$${REMOTE_FEE.toLocaleString("en-US")}`
-      : `$${IN_PERSON_FEE.toLocaleString("en-US")} plus travel`;
-  const hold =
-    input.format === "in-person"
-      ? ` The calendar holds ${IN_PERSON_HOLD_DAYS} full days.`
-      : "";
-  const week = input.preferredWeek.trim()
-    ? ` Preferred window: ${input.preferredWeek.trim()}.`
-    : "";
-  const lens = role ? ` Framed for a ${role.label.toLowerCase()}.` : "";
+  const week = input.preferredWeek.trim();
+  const lens = role ? ` Framed for ${role.label.toLowerCase()}.` : "";
 
   return [
-    `Please join a 60-minute lunch-and-learn with ${PRINCIPAL}, ${FIRM}.`,
+    `Please join a 60-minute Lunch & Learn with ${PRINCIPAL}, ${FIRM}.`,
     `Title: ${talk.title}.`,
     talk.promise,
-    `Format: ${where}. Fee: ${fee}, payable at booking.${hold}${week}${lens}`,
+    `Audience: ${role ? role.label.toLowerCase() : "the organization"}. Format: ${where}.${lens}`,
+    week ? `Date: ${week}.` : "",
     `Host: ${input.hostName.trim() || "TBD"}, ${org}.`,
     `Questions: ${CONTACT_EMAIL}.`,
-  ].join(" ");
+  ]
+    .filter(Boolean)
+    .join(" ");
 }
 
 export function packetLetter(input: PacketInput) {
@@ -83,7 +72,7 @@ export function packetLetter(input: PacketInput) {
     `To: ${CONTACT_EMAIL}`,
     `From: ${input.hostName.trim() || "[name]"} <${input.hostEmail.trim() || "[email]"}>`,
     `Organization: ${input.org.trim() || "[organization]"}`,
-    `Who attends: ${role?.label ?? "[role]"}`,
+    `Audience: ${role?.label ?? "[audience]"}`,
     `Talk: ${talk.title}`,
     input.talkId === "customize"
       ? `Questions for the hour: ${input.questions.trim() || "[questions]"}`

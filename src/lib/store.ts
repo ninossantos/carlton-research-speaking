@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { FormatId, RoleId, TalkId } from "@/lib/talks";
+import { isFormatId, isRoleId, isTalkId, type FormatId, type RoleId, type TalkId } from "@/lib/talks";
 
 export type BriefingState = {
   talkId: TalkId | null;
@@ -115,9 +115,9 @@ export const useBriefing = create<BriefingState>((set, get) => ({
 export function hydrateBriefing() {
   const saved = load();
   useBriefing.setState({
-    talkId: saved.talkId ?? null,
-    role: saved.role ?? null,
-    format: saved.format ?? null,
+    talkId: isTalkId(saved.talkId) ? saved.talkId : null,
+    role: isRoleId(saved.role) ? saved.role : null,
+    format: isFormatId(saved.format) ? saved.format : null,
     org: saved.org ?? "",
     city: saved.city ?? "",
     hostName: saved.hostName ?? "",

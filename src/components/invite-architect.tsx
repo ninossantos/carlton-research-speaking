@@ -3,19 +3,26 @@ import { useBriefing } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import { TERMS } from "@/lib/booking";
 
-export function InviteArchitect() {
+export function BookingIntake() {
   const s = useBriefing();
 
   return (
-    <section id="architect" className="rounded-[var(--radius-lg)] border border-border bg-surface p-5 shadow-[var(--shadow-border)] sm:p-8">
-      <h2 className="text-2xl">Build the Invite</h2>
+    <section
+      id="booking-details"
+      className="rounded-[var(--radius-lg)] border border-border bg-surface p-5 shadow-[var(--shadow-border)] sm:p-8"
+    >
+      <h2 className="text-2xl">Prepare the Hour</h2>
       <p className="mt-2 max-w-2xl text-muted">
-        Five facts. The page writes a one-sheet and a blurb you can forward. Remote books on the
-        next step. In-person needs a city so travel can be quoted.
+        Select your audience and the format. Book the hour next. After the date locks and the fee
+        clears,{" "}
+        <a href="/invite" className="text-primary underline underline-offset-4 hover:text-ink">
+          build an invite
+        </a>
+        .
       </p>
 
       <fieldset className="mt-8">
-        <legend className="text-sm font-bold text-ink">Who attends</legend>
+        <legend className="text-sm font-bold text-ink">Select your audience</legend>
         <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
           {ROLES.map((role) => (
             <Choice
@@ -92,7 +99,10 @@ export function InviteArchitect() {
         ) : null}
       </div>
       {s.talkId === "customize" ? (
-        <label className="mt-6 flex flex-col gap-1.5 text-sm font-semibold text-ink" htmlFor="questions-for-the-hour">
+        <label
+          className="mt-6 flex flex-col gap-1.5 text-sm font-semibold text-ink"
+          htmlFor="questions-for-the-hour"
+        >
           Questions for the hour
           <textarea
             id="questions-for-the-hour"
@@ -108,7 +118,7 @@ export function InviteArchitect() {
   );
 }
 
-function Choice({
+export function Choice({
   selected,
   onClick,
   label,
@@ -134,7 +144,7 @@ function Choice({
   );
 }
 
-function Field({
+export function Field({
   label,
   value,
   onChange,

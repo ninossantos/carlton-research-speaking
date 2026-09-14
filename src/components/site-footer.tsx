@@ -3,6 +3,7 @@ import { FIRM, FIRM_ORIGIN, TERMS } from "@/lib/booking";
 const practiceNav = [
   { href: `${FIRM_ORIGIN}/`, label: "Home" },
   { href: "/", label: "Lunch & Learn" },
+  { href: "/invite", label: "Build an Invite" },
   { href: `${FIRM_ORIGIN}/services/`, label: "Services" },
   { href: `${FIRM_ORIGIN}/about/`, label: "About" },
   { href: `${FIRM_ORIGIN}/contact/`, label: "Contact" },

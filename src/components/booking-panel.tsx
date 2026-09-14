@@ -54,7 +54,7 @@ export function BookingPanel({ input }: { input: PacketInput }) {
             )}
           </Button>
           {input.format === "in-person" ? (
-            <p className="mt-3 text-xs text-faint">Switch the architect to remote to use this door.</p>
+            <p className="mt-3 text-xs text-faint">Switch the format above to remote to use this door.</p>
           ) : null}
         </div>
 
@@ -110,7 +110,7 @@ export function BookingPanel({ input }: { input: PacketInput }) {
 
       {!ready ? (
         <p className="mt-6 text-sm text-gold-soft">
-          Finish the architect above. The booking doors open when the packet is complete.
+          Finish the details above. The booking doors open when the packet is complete.
         </p>
       ) : null}
     </section>
