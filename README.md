@@ -17,7 +17,9 @@ Four topics:
 3. Incident-Model vs Pattern-Model of Coercive Control
 4. Customize Your Presentation
 
-The hour runs 60 minutes: presentation plus questions. Remote $750, payable upon booking. In person $1,500 plus travel expenses. Travel fees paid upon booking are non-refundable. Speaking fee is refundable if canceled 14 days in advance. Outside the USA, ask for in-person prices. Published prices apply to remote presentations regardless of location.
+The presentation runs 60 minutes: presentation plus questions. Remote $750, payable upon booking. In person $1,500 plus travel expenses. Travel fees paid upon booking are non-refundable. Speaking fee is refundable if canceled 14 days in advance. Outside the USA, ask for in-person prices. Published prices apply to remote presentations regardless of location.
+
+The `/invite` page is unlisted. Do not link it from the speaking page, WordPress, or search. `robots.txt` disallows it.
 
 ## Grok Bot
 

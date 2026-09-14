@@ -62,7 +62,7 @@ export function SiteHeader({
           href={bookHref}
           className="shrink-0 text-sm font-semibold text-primary underline underline-offset-4 hover:text-ink"
         >
-          Book the hour
+          Book the presentation
         </a>
       </div>
     </header>
