@@ -76,7 +76,7 @@ export const TALKS: Talk[] = [
     id: "high-conflict",
     title: "Distinguish High Conflict from Coercive Control",
     short: "High Conflict from Coercive Control",
-    promise: "Conflict makes noise. Coercive control organizes a field. The hour teaches the difference.",
+    promise: "Conflict is episodic and bilateral. Coercive control is directional and cumulative. The hour teaches to distinguish them.",
     takeaways: [
       "Conflict is not evidence of coercive control.",
       "High conflict can be loud, mutual, and still fail every prong of a pattern.",
