@@ -1,6 +1,6 @@
 # Handoff for Grok Bot
 
-Lunch-and-Learn for Carlton Research, LLC.
+Lunch & Learn for Carlton Research, LLC.
 
 Repository: https://github.com/ninossantos/carlton-research-speaking
 
@@ -11,8 +11,8 @@ This repository is the speaking app. This is not the Coercive Control Observator
 ## Task
 
 1. Deploy this repository so https://speaking.carltonresearch.com/ serves the app. Same Cloudflare CNAME pattern as instruments and tracker. Cloudways hosts WordPress only.
-2. WordPress (Kadence, Cloudways): add one menu item. Title: Lunch-and-Learn. URL: https://speaking.carltonresearch.com/
-3. Do not iframe this app. Do not paste React source into WordPress. Do not add a second menu item. Do not put Lunch-and-Learn inside Observatory, Instruments, or Tracker navigation as a tab of those products.
+2. WordPress (Kadence, Cloudways): add one menu item. Title: Lunch & Learn. URL: https://speaking.carltonresearch.com/
+3. Do not iframe this app. Do not paste React source into WordPress. Do not add a second menu item. Do not put Lunch & Learn inside Observatory, Instruments, or Tracker navigation as a tab of those products.
 4. Do not mention Fenlowe Press anywhere.
 
 ## TidyCal (Carisa sets these up, then paste URLs)

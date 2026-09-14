@@ -2,7 +2,7 @@ import { FIRM_ORIGIN } from "@/lib/booking";
 
 const practiceNav = [
   { href: `${FIRM_ORIGIN}/`, label: "Home" },
-  { href: "/", label: "Lunch-and-Learn", current: true },
+  { href: "/", label: "Lunch & Learn", current: true },
   { href: `${FIRM_ORIGIN}/services/`, label: "Services" },
   { href: `${FIRM_ORIGIN}/about/`, label: "About" },
   { href: `${FIRM_ORIGIN}/contact/`, label: "Contact" },
@@ -48,7 +48,7 @@ export function SiteHeader() {
           <span className="flex min-w-0 flex-col leading-tight">
             <span className="font-display text-lg text-ink">Carlton Research, LLC</span>
             <span className="mt-0.5 text-xs font-bold uppercase tracking-widest text-primary">
-              Lunch-and-Learn
+              Lunch & Learn
             </span>
           </span>
         </a>

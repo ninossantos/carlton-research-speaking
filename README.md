@@ -1,4 +1,4 @@
-# Carlton Research Lunch-and-Learn
+# Carlton Research Lunch & Learn
 
 Interactive speaking page for Carlton Research, LLC.
 
@@ -20,7 +20,7 @@ The hour runs 60 minutes: presentation plus questions. Remote $750. In person $1
 
 ## Grok Bot
 
-Read [GROK-BOT.md](./GROK-BOT.md) before adding Lunch-and-Learn to CarltonResearch.com.
+Read [GROK-BOT.md](./GROK-BOT.md) before adding Lunch & Learn to CarltonResearch.com.
 
 ## Brand
 

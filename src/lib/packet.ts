@@ -104,8 +104,8 @@ export function packetLetter(input: PacketInput) {
 export function mailtoFor(input: PacketInput) {
   const talk = talkById(input.talkId);
   const subject = talk
-    ? `Lunch-and-Learn request: ${talk.short}`
-    : "Lunch-and-Learn request";
+    ? `Lunch & Learn request: ${talk.short}`
+    : "Lunch & Learn request";
   return {
     subject,
     body: packetLetter(input),

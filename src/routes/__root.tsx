@@ -3,7 +3,7 @@ import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import appCss from "../styles.css?url";
 
-const APP_NAME = "Lunch-and-Learn | Carlton Research, LLC";
+const APP_NAME = "Lunch & Learn | Carlton Research, LLC";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -14,7 +14,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Lunch-and-Learn with Carisa Carlton, M.A. Sixty minutes. Three rooms on coercive control. Remote or in person.",
+          "Lunch & Learn with Carisa Carlton, M.A. Sixty minutes. Three rooms on coercive control. Remote or in person.",
       },
       { name: "theme-color", content: "#090a0c" },
     ],

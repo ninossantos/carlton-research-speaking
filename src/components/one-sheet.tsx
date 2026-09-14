@@ -35,7 +35,7 @@ export function OneSheet({ input }: { input: PacketInput }) {
           {FIRM}
         </p>
         <h2 className="mt-3 text-center font-display text-2xl uppercase tracking-[0.06em] text-ink">
-          Lunch-and-Learn
+          Lunch & Learn
         </h2>
         <p className="mt-2 text-center text-sm text-muted">{PRINCIPAL}</p>
         <div className="mx-auto mt-4 h-px w-24 bg-gold" />

@@ -62,7 +62,7 @@ function Home() {
         <section className="text-center">
           <p className="text-xs font-bold uppercase tracking-widest text-gold">Schedule a Presentation</p>
           <h1 className="mt-4 font-display text-4xl uppercase tracking-wider text-ink sm:text-5xl md:text-6xl">
-            Lunch-and-Learn
+            Lunch & Learn
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-fg">Carisa Carlton, M.A.</p>
           <p className="mx-auto mt-2 max-w-2xl text-lg text-fg">

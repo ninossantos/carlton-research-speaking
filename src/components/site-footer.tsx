@@ -2,7 +2,7 @@ import { FIRM, FIRM_ORIGIN, TERMS } from "@/lib/booking";
 
 const practiceNav = [
   { href: `${FIRM_ORIGIN}/`, label: "Home" },
-  { href: "/", label: "Lunch-and-Learn" },
+  { href: "/", label: "Lunch & Learn" },
   { href: `${FIRM_ORIGIN}/services/`, label: "Services" },
   { href: `${FIRM_ORIGIN}/about/`, label: "About" },
   { href: `${FIRM_ORIGIN}/contact/`, label: "Contact" },
@@ -30,7 +30,7 @@ export function SiteFooter() {
           <span>{FIRM}</span>
         </p>
         <p className="max-w-2xl text-sm leading-relaxed text-muted">
-          Lunch-and-Learn is a proprietary program of {FIRM}. All rights reserved. {TERMS.notCle}{" "}
+          Lunch & Learn is a proprietary program of {FIRM}. All rights reserved. {TERMS.notCle}{" "}
           {TERMS.notDiagnostic} {TERMS.notClinical}
         </p>
         <nav aria-label="Carlton Research" className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
