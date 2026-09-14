@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { PRONGS, type Talk } from "@/lib/talks";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -10,9 +10,15 @@ export function KineticOpening({ talk }: { talk: Talk }) {
   const [now, setNow] = useState(0);
   const [playing, setPlaying] = useState(true);
   const [runId, setRunId] = useState(0);
+  const nowRef = useRef(0);
+
+  useEffect(() => {
+    nowRef.current = now;
+  }, [now]);
 
   useEffect(() => {
     setNow(0);
+    nowRef.current = 0;
     setPlaying(true);
     setRunId((n) => n + 1);
   }, [talk.id]);
@@ -24,13 +30,15 @@ export function KineticOpening({ talk }: { talk: Talk }) {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
       setNow(duration);
+      nowRef.current = duration;
       setPlaying(false);
       return;
     }
     let raf = 0;
-    const start = performance.now();
+    const start = performance.now() - nowRef.current;
     const tick = (t: number) => {
       const elapsed = Math.min(duration, t - start);
+      nowRef.current = elapsed;
       setNow(elapsed);
       if (elapsed >= duration) {
         setPlaying(false);
@@ -51,6 +59,7 @@ export function KineticOpening({ talk }: { talk: Talk }) {
   }, [now, talk.opening]);
 
   const progress = Math.min(1, now / duration);
+  const finished = now >= duration;
   const stackCount = talk.opening.filter((b) => b.visual === "stack" && b.at <= now).length;
   const shown =
     beat.visual === "flash"
@@ -58,6 +67,18 @@ export function KineticOpening({ talk }: { talk: Talk }) {
       : beat.visual === "stack"
         ? Math.min(talk.artifacts.length, Math.max(stackCount, 1))
         : 0;
+
+  function pauseOrResume() {
+    if (finished) return;
+    setPlaying((on) => !on);
+  }
+
+  function replay() {
+    setNow(0);
+    nowRef.current = 0;
+    setPlaying(true);
+    setRunId((n) => n + 1);
+  }
 
   return (
     <section
@@ -68,26 +89,15 @@ export function KineticOpening({ talk }: { talk: Talk }) {
         <p className="text-xs font-bold uppercase tracking-widest text-primary">Opening of the Presentation</p>
         <div className="flex gap-2">
           <Button
-            variant="ghost"
-            size="sm"
-            className="no-print"
-            onClick={() => {
-              setNow(duration);
-              setPlaying(false);
-            }}
-          >
-            Skip
-          </Button>
-          <Button
             variant="outline"
             size="sm"
             className="no-print"
-            onClick={() => {
-              setNow(0);
-              setPlaying(true);
-              setRunId((n) => n + 1);
-            }}
+            disabled={finished && !playing}
+            onClick={pauseOrResume}
           >
+            {playing ? "Pause" : "Resume"}
+          </Button>
+          <Button variant="outline" size="sm" className="no-print" onClick={replay}>
             Replay
           </Button>
         </div>
