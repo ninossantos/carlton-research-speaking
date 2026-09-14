@@ -1,0 +1,157 @@
+import { useEffect } from "react";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { RoomPicker } from "@/components/room-picker";
+import { KineticOpening } from "@/components/kinetic-opening";
+import { InviteArchitect } from "@/components/invite-architect";
+import { OneSheet } from "@/components/one-sheet";
+import { BookingPanel } from "@/components/booking-panel";
+import { hydrateBriefing, useBriefing } from "@/lib/store";
+import { TERMS } from "@/lib/booking";
+import { PRONGS, TALKS, talkById, type TalkId } from "@/lib/talks";
+
+function isTalkId(v: unknown): v is TalkId {
+  return TALKS.some((t) => t.id === v);
+}
+
+export const Route = createFileRoute("/")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    room: isTalkId(search.room) ? search.room : undefined,
+  }),
+  component: Home,
+});
+
+function Home() {
+  const { room } = Route.useSearch();
+  const navigate = useNavigate({ from: "/" });
+  const briefing = useBriefing();
+  const talk = talkById(briefing.talkId);
+
+  useEffect(() => {
+    hydrateBriefing();
+  }, []);
+
+  useEffect(() => {
+    if (room) useBriefing.getState().setTalk(room);
+  }, [room]);
+
+  function pickRoom(id: TalkId) {
+    briefing.setTalk(id);
+    void navigate({ search: { room: id } });
+    window.setTimeout(() => {
+      document.getElementById("briefing")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
+  }
+
+  const packet = {
+    talkId: briefing.talkId,
+    role: briefing.role,
+    format: briefing.format,
+    org: briefing.org,
+    city: briefing.city,
+    hostName: briefing.hostName,
+    hostEmail: briefing.hostEmail,
+    preferredWeek: briefing.preferredWeek,
+  };
+
+  return (
+    <div className="flex min-h-screen flex-col bg-bg text-fg">
+      <SiteHeader />
+      <main id="main" className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-5 py-12 sm:px-8 sm:py-16">
+        <section className="text-center">
+          <p className="text-xs font-bold uppercase tracking-widest text-gold">Carlton Research, LLC</p>
+          <h1 className="mt-4 font-display text-4xl uppercase tracking-[0.12em] text-ink sm:text-5xl md:text-6xl">
+            Lunch-and-Learn
+          </h1>
+          <p className="mx-auto mt-5 max-w-2xl text-lg text-fg">
+            Carisa Carlton, M.A. Sixty minutes: presentation plus questions. Three rooms. The page
+            does the talk, then writes the invite.
+          </p>
+          <p className="mx-auto mt-4 max-w-xl text-sm text-muted">
+            For attorneys, judges, office managers, and human resources. Remote or in person. Not a
+            CLE. A CLE follows the book.
+          </p>
+        </section>
+
+        <section aria-labelledby="rooms-heading">
+          <h2 id="rooms-heading" className="text-2xl">
+            Pick a Room
+          </h2>
+          <p className="mt-2 max-w-2xl text-muted">
+            Each room is a topic. Click one. The opening of the hour plays. Then build the packet
+            for the people who will sit there.
+          </p>
+          <div className="mt-6">
+            <RoomPicker value={briefing.talkId} onChange={pickRoom} />
+          </div>
+        </section>
+
+        {talk ? (
+          <section id="briefing" className="flex flex-col gap-10">
+            <KineticOpening talk={talk} />
+
+            <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+              <div>
+                <h2 className="text-2xl">What the Hour Leaves</h2>
+                <ol className="mt-4 list-decimal space-y-3 pl-5 text-fg">
+                  {talk.takeaways.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ol>
+                <p className="mt-6 text-sm text-muted">{TERMS.duration}</p>
+              </div>
+              <aside className="rounded-[var(--radius-md)] border border-border bg-surface p-5">
+                <h3 className="text-base not-italic">Four prongs. A pattern needs all four.</h3>
+                <ul className="mt-4 space-y-3">
+                  {PRONGS.map((p) => (
+                    <li key={p.id}>
+                      <p className="font-semibold text-ink">{p.label}</p>
+                      <p className="text-sm text-muted">{p.line}</p>
+                    </li>
+                  ))}
+                </ul>
+              </aside>
+            </div>
+          </section>
+        ) : null}
+
+        <InviteArchitect />
+
+        <section aria-labelledby="sheet-heading">
+          <h2 id="sheet-heading" className="text-2xl">
+            One-Sheet
+          </h2>
+          <p className="mt-2 max-w-2xl text-muted">
+            Forward this page or print the sheet. The blurb is a letter you can paste.
+          </p>
+          <div className="mt-6">
+            <OneSheet input={packet} />
+          </div>
+        </section>
+
+        <BookingPanel input={packet} />
+
+        <section aria-labelledby="terms-heading" className="border-t border-border pt-10">
+          <h2 id="terms-heading" className="text-2xl">
+            Terms
+          </h2>
+          <ul className="mt-4 max-w-3xl space-y-2 text-sm text-muted">
+            <li>{TERMS.duration}</li>
+            <li>{TERMS.remoteFee}</li>
+            <li>{TERMS.remoteCancel}</li>
+            <li>{TERMS.remoteChange}</li>
+            <li>{TERMS.inPersonFee}</li>
+            <li>{TERMS.travel}</li>
+            <li>{TERMS.hold}</li>
+            <li>{TERMS.availability}</li>
+            <li>{TERMS.notCle}</li>
+            <li>{TERMS.notDiagnostic}</li>
+            <li>{TERMS.notClinical}</li>
+          </ul>
+        </section>
+      </main>
+      <SiteFooter />
+    </div>
+  );
+}

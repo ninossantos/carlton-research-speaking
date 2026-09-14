@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f3f0eb;
+  --color-surface: #f8f7f3;
+  --color-surface-2: #ffffff;
+  --color-ink: #090a0c;
+  --color-fg: #1e2d40;
+  --color-muted: #4a5567;
+  --color-faint: #84919a;
+  --color-gold: #d7a975;
+  --color-gold-soft: #dbb28b;
+  --color-primary: #6f2430;
+  --color-primary-fg: #f8f7f3;
+  --color-border: #efefef;
+  --color-rule: #d7a975;
+
+  --font-display: "Playfair Display", "Palatino Linotype", Palatino, serif;
+  --font-sans: "Nunito", "Segoe UI", system-ui, sans-serif;
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --shadow-border: 0 0 0 1px #efefef, 0 1px 2px -1px rgb(9 10 12 / 0.06);
+
+  --motion-stagger: 40ms;
+  --motion-quick: 150ms;
+  --motion-fast: 250ms;
+  --motion-slow: 400ms;
+  --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body,
+  #app {
+    min-height: 100%;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    font-weight: 400;
+  }
+
+  h1,
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-wrap: balance;
+  }
+
+  h2,
+  h3 {
+    font-family: var(--font-sans);
+    text-wrap: balance;
+  }
+
+  h2 {
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+
+  h3 {
+    font-weight: 700;
+    font-style: italic;
+    color: var(--color-fg);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #one-sheet,
+  #one-sheet * {
+    visibility: visible;
+  }
+  #one-sheet {
+    position: absolute;
+    inset: 0;
+    background: white;
+    box-shadow: none;
+    border: 0;
+    max-width: none;
+    padding: 0.6in;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

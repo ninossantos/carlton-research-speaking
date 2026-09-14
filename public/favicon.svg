@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" role="img" aria-label="CR">
+  <rect width="16" height="16" fill="#F3EFE6"/>
+  <path d="M7.05 5.25A3.4 3.4 0 1 0 7.05 10.75" fill="none" stroke="#6E2430" stroke-width="2.15" stroke-linecap="butt"/>
+  <rect x="8.9" y="2.55" width="2" height="10.9" fill="#6E2430"/>
+  <path fill="#6E2430" fill-rule="evenodd" d="M8.9 2.55H10.8A2.9 2.9 0 0 1 10.8 8.35H8.9Z M10.8 4.27A1.18 1.18 0 1 0 10.8 6.63A1.18 1.18 0 1 0 10.8 4.27Z"/>
+  <polygon points="10.9,7.72 11.85,7.72 14.55,13.45 12.35,13.45" fill="#6E2430"/>
+</svg>
