@@ -34,12 +34,21 @@ export function takeawaysFor(input: PacketInput) {
   return [talk.takeaways[0], talk.takeaways[1], third];
 }
 
-export function inviteBlurb(input: PacketInput) {
+export function presentationTitle(input: PacketInput) {
+  const talk = talkById(input.talkId);
+  if (!talk) return "";
+  if (talk.id === "customize") return input.questions.trim();
+  return talk.title;
+}
+
+export function invitationCopy(input: PacketInput) {
   const talk = talkById(input.talkId);
   const role = roleById(input.role);
   if (!talk || !input.format) return "";
 
   const org = input.org.trim() || "our office";
+  const title =
+    presentationTitle(input) || (talk.id === "customize" ? "Insert your topic" : talk.title);
   const where =
     input.format === "remote"
       ? "remote"
@@ -51,8 +60,8 @@ export function inviteBlurb(input: PacketInput) {
 
   return [
     `Please join a 60-minute Lunch & Learn with ${PRINCIPAL}, ${FIRM}.`,
-    `Title: ${talk.title}.`,
-    talk.promise,
+    `Title: ${title}.`,
+    talk.id === "customize" ? "" : talk.promise,
     `Audience: ${role ? role.label.toLowerCase() : "the organization"}. Format: ${where}.${lens}`,
     week ? `Date: ${week}.` : "",
     `Host: ${input.hostName.trim() || "TBD"}, ${org}.`,
@@ -73,13 +82,10 @@ export function packetLetter(input: PacketInput) {
     `From: ${input.hostName.trim() || "[name]"} <${input.hostEmail.trim() || "[email]"}>`,
     `Organization: ${input.org.trim() || "[organization]"}`,
     `Audience: ${role?.label ?? "[audience]"}`,
-    `Talk: ${talk.title}`,
-    input.talkId === "customize"
-      ? `Questions for the hour: ${input.questions.trim() || "[questions]"}`
-      : null,
+    `Talk: ${presentationTitle(input) || (input.talkId === "customize" ? "[insert your topic]" : talk.title)}`,
     `Format: ${input.format === "remote" ? "Remote" : "In person"}`,
     input.format === "in-person" ? `City: ${input.city.trim() || "[city]"}` : "City: n/a (remote)",
-    `Preferred window: ${input.preferredWeek.trim() || "[week]"}`,
+    `Date and time: ${input.preferredWeek.trim() || "[date and time]"}`,
     "",
     TERMS.duration,
     input.format === "remote" ? TERMS.remoteFee : TERMS.inPersonFee,
@@ -98,7 +104,7 @@ export function packetLetter(input: PacketInput) {
 export function mailtoFor(input: PacketInput) {
   const talk = talkById(input.talkId);
   const subject = talk
-    ? `Lunch & Learn request: ${talk.short}`
+    ? `Lunch & Learn request: ${presentationTitle(input) || talk.short}`
     : "Lunch & Learn request";
   return {
     subject,
