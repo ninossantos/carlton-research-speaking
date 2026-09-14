@@ -6,7 +6,6 @@ import { RoomPicker } from "@/components/room-picker";
 import { OneSheet } from "@/components/one-sheet";
 import { Choice, Field } from "@/components/invite-architect";
 import { hydrateBriefing, useBriefing } from "@/lib/store";
-import { ORIGIN } from "@/lib/booking";
 import { ROLES, isFormatId, isRoleId, isTalkId, type TalkId } from "@/lib/talks";
 
 function asString(v: unknown) {
@@ -15,7 +14,11 @@ function asString(v: unknown) {
 
 export const Route = createFileRoute("/invite")({
   head: () => ({
-    meta: [{ title: "Build an Invite | Carlton Research, LLC" }],
+    meta: [
+      { title: "Invitation | Carlton Research, LLC" },
+      { name: "robots", content: "noindex, nofollow, noarchive, nosnippet" },
+      { name: "googlebot", content: "noindex, nofollow, noarchive, nosnippet" },
+    ],
   }),
   validateSearch: (search: Record<string, unknown>) => ({
     topic: isTalkId(search.topic) ? search.topic : undefined,
@@ -70,30 +73,32 @@ function InvitePage() {
       <SiteHeader bookHref="/#book" current={false} />
       <main id="main" className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-5 py-12 sm:px-8 sm:py-16">
         <section className="text-center">
-          <p className="text-xs font-bold uppercase tracking-widest text-gold">After the hour is booked</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-gold">After the presentation is booked</p>
           <h1 className="mt-4 font-display text-4xl uppercase tracking-wider text-ink sm:text-5xl">
-            Build an Invite
+            Invitation
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-fg">
-            Use this page after the date locks and the fee clears. Write a one-sheet and a blurb
-            the host can send inside the organization.
+            Use this page after the date is confirmed and the fee is paid. Write a one-sheet the host
+            can send inside the organization.
           </p>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-muted">
-            For in-person hours, wait until travel and the speaking fee have both cleared. Remote
-            hours write the invite once TidyCal has taken the fee.
+            For in-person presentations, wait until travel and the speaking fee have both cleared.
+            Remote presentations open this page once TidyCal has taken the fee.
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl">Pick a Topic</h2>
-          <p className="mt-2 max-w-2xl text-muted">The sheet follows the hour you booked.</p>
+          <p className="mt-2 max-w-2xl text-muted">
+            Pick a topic. The one-sheet writes itself from that presentation.
+          </p>
           <div className="mt-6">
             <RoomPicker value={s.talkId} onChange={pickTopic} />
           </div>
         </section>
 
         <section className="rounded-[var(--radius-lg)] border border-border bg-surface p-5 shadow-[var(--shadow-border)] sm:p-8">
-          <h2 className="text-2xl">The Locked Hour</h2>
+          <h2 className="text-2xl">The Presentation</h2>
           <fieldset className="mt-8">
             <legend className="text-sm font-bold text-ink">Select your audience</legend>
             <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
@@ -133,7 +138,7 @@ function InvitePage() {
               autoComplete="email"
             />
             <Field
-              label="Date of the hour"
+              label="Date and time of the presentation"
               value={s.preferredWeek}
               onChange={s.setPreferredWeek}
               placeholder="12 October 2026, 12:00 p.m."
@@ -146,18 +151,19 @@ function InvitePage() {
                 placeholder="Phoenix, Arizona"
               />
             ) : null}
+            {s.talkId === "customize" ? (
+              <Field
+                label="Your topic"
+                value={s.questions}
+                onChange={s.setQuestions}
+                placeholder="Insert your topic"
+              />
+            ) : null}
           </div>
         </section>
 
         <section>
-          <h2 className="text-2xl">One-Sheet and Blurb</h2>
-          <p className="mt-2 max-w-2xl text-muted">
-            Print the sheet or copy the blurb. Send either inside the organization. This page lives
-            at {ORIGIN}/invite.
-          </p>
-          <div className="mt-6">
-            <OneSheet input={packet} />
-          </div>
+          <OneSheet input={packet} />
         </section>
       </main>
       <SiteFooter />
