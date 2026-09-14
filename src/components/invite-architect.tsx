@@ -51,7 +51,7 @@ export function BookingIntake() {
         </div>
         {s.format === "in-person" ? (
           <p className="mt-3 text-sm text-muted">
-            {TERMS.inPersonPoints.join(" ")} {TERMS.hold} {TERMS.geoPrice}
+            {TERMS.inPersonPoints.join(" ")} {TERMS.geoPrice}
           </p>
         ) : s.format === "remote" ? (
           <p className="mt-3 text-sm text-muted">
