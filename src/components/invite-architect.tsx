@@ -11,14 +11,9 @@ export function BookingIntake() {
       id="booking-details"
       className="rounded-[var(--radius-lg)] border border-border bg-surface p-5 shadow-[var(--shadow-border)] sm:p-8"
     >
-      <h2 className="text-2xl">Prepare the Hour</h2>
+      <h2 className="text-2xl">Prepare the Presentation</h2>
       <p className="mt-2 max-w-2xl text-muted">
-        Select your audience and the format. Book the hour next. After the date locks and the fee
-        clears,{" "}
-        <a href="/invite" className="text-primary underline underline-offset-4 hover:text-ink">
-          build an invite
-        </a>
-        .
+        Select your audience and the format. Book the presentation next.
       </p>
 
       <fieldset className="mt-8">
@@ -37,7 +32,7 @@ export function BookingIntake() {
 
       <fieldset className="mt-6">
         <legend className="text-sm font-bold text-ink">Format</legend>
-        <div className="mt-3 grid grid-cols-2 gap-2">
+        <div className="mt-3 grid gap-2 grid-cols-2">
           <Choice
             selected={s.format === "remote"}
             onClick={() => s.setFormat("remote")}
@@ -99,20 +94,14 @@ export function BookingIntake() {
         ) : null}
       </div>
       {s.talkId === "customize" ? (
-        <label
-          className="mt-6 flex flex-col gap-1.5 text-sm font-semibold text-ink"
-          htmlFor="questions-for-the-hour"
-        >
-          Questions for the hour
-          <textarea
-            id="questions-for-the-hour"
+        <div className="mt-6">
+          <Field
+            label="Your topic"
             value={s.questions}
-            onChange={(e) => s.setQuestions(e.target.value)}
-            rows={5}
-            placeholder="Name the questions you want answered."
-            className="rounded-[var(--radius-sm)] border border-border bg-surface-2 px-3 py-2 font-normal text-fg outline-none placeholder:text-faint focus:border-gold"
+            onChange={s.setQuestions}
+            placeholder="Insert your topic"
           />
-        </label>
+        </div>
       ) : null}
     </section>
   );
