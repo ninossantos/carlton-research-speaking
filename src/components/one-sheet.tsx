@@ -8,7 +8,7 @@ import {
   REMOTE_FEE,
   TERMS,
 } from "@/lib/booking";
-import { inviteBlurb, packetReady, takeawaysFor, type PacketInput } from "@/lib/packet";
+import { invitationCopy, packetReady, presentationTitle, takeawaysFor, type PacketInput } from "@/lib/packet";
 import { roleById, talkById } from "@/lib/talks";
 
 export function OneSheet({ input }: { input: PacketInput }) {
@@ -16,14 +16,11 @@ export function OneSheet({ input }: { input: PacketInput }) {
   const role = roleById(input.role);
   const ready = packetReady(input);
   const takes = takeawaysFor(input);
-  const blurb = inviteBlurb(input);
+  const copy = invitationCopy(input);
   const [copied, setCopied] = useState(false);
+  const title = presentationTitle(input) || talk?.title || "";
 
-  if (!talk) {
-    return (
-      <p className="text-muted">Pick a topic. The one-sheet writes itself from that hour.</p>
-    );
-  }
+  if (!talk) return null;
 
   return (
     <div className="flex flex-col gap-4">
@@ -40,8 +37,10 @@ export function OneSheet({ input }: { input: PacketInput }) {
         <p className="mt-2 text-center text-sm text-muted">{PRINCIPAL}</p>
         <div className="mx-auto mt-4 h-px w-24 bg-gold" />
 
-        <h3 className="mt-6 text-lg text-fg">{talk.title}</h3>
-        <p className="mt-2 text-fg">{talk.promise}</p>
+        <h3 className="mt-6 text-lg text-fg">
+          {input.talkId === "customize" ? title || "Insert your topic" : talk.title}
+        </h3>
+        {talk.id === "customize" ? null : <p className="mt-2 text-fg">{talk.promise}</p>}
         <p className="mt-3 text-sm text-muted">{TERMS.duration}</p>
 
         <p className="mt-6 text-sm font-bold text-ink">Takeaways</p>
@@ -53,7 +52,7 @@ export function OneSheet({ input }: { input: PacketInput }) {
 
         <table className="mt-6 w-full text-sm">
           <caption className="mb-0 caption-top text-left font-display text-sm text-gold">
-            The Hour
+            The Presentation
           </caption>
           <tbody>
             <Row k="Audience" v={role ? role.label : "Select your audience"} />
@@ -77,12 +76,9 @@ export function OneSheet({ input }: { input: PacketInput }) {
                     : "Remote $750 · In person $1,500 plus travel expenses"
               }
             />
-            <Row k="Organization" v={input.org.trim() || "—"} />
-            <Row k="Host" v={input.hostName.trim() || "—"} />
-            <Row k="Window" v={input.preferredWeek.trim() || "—"} />
-            {input.talkId === "customize" ? (
-              <Row k="Questions" v={input.questions.trim() || "Name the questions for the hour"} />
-            ) : null}
+            <Row k="Organization" v={input.org.trim() || "\u2014"} />
+            <Row k="Host" v={input.hostName.trim() || "\u2014"} />
+            <Row k="Date and time" v={input.preferredWeek.trim() || "\u2014"} />
           </tbody>
         </table>
 
@@ -102,20 +98,20 @@ export function OneSheet({ input }: { input: PacketInput }) {
         </Button>
         <Button
           variant="ghost"
-          disabled={!blurb}
+          disabled={!copy}
           onClick={async () => {
-            await navigator.clipboard.writeText(blurb);
+            await navigator.clipboard.writeText(copy);
             setCopied(true);
             window.setTimeout(() => setCopied(false), 1600);
           }}
         >
-          {copied ? "Blurb copied" : "Copy the invite blurb"}
+          {copied ? "Invitation copied" : "Copy the invitation"}
         </Button>
       </div>
 
-      {blurb ? (
+      {copy ? (
         <blockquote className="no-print border-l-2 border-gold pl-4 text-sm text-muted">
-          {blurb}
+          {copy}
         </blockquote>
       ) : (
         <p className="no-print text-sm text-muted">
