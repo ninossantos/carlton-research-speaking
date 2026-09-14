@@ -24,12 +24,13 @@ export const TERMS = {
   ],
   inPersonFee: `In-person speaking fee: $${IN_PERSON_FEE.toLocaleString("en-US")} plus travel expenses.`,
   inPersonPoints: [
+    "Two days are held to accommodate travel: the day of the presentation plus one day before for travel.",
     "Travel quoted for the presentation location.",
     "Travel fees paid upon booking are non-refundable.",
     `Speaking fee is refundable if canceled ${NOTICE_DAYS} days in advance.`,
     "TidyCal shows availability only; payment confirms the date.",
   ],
-  hold: `In-person holds ${IN_PERSON_HOLD_DAYS} full calendar days: travel plus the hour.`,
+  hold: "Two days are held to accommodate travel: the day of the presentation plus one day before for travel.",
   geoPrice:
     "Outside the USA, ask for in-person prices. Published prices apply to remote presentations regardless of location.",
   notCle: "Not a CLE.",

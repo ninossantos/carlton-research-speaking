@@ -84,7 +84,6 @@ export function packetLetter(input: PacketInput) {
     TERMS.duration,
     input.format === "remote" ? TERMS.remoteFee : TERMS.inPersonFee,
     ...(input.format === "remote" ? TERMS.remotePoints : TERMS.inPersonPoints),
-    input.format === "in-person" ? TERMS.hold : null,
     TERMS.geoPrice,
     "",
     "Takeaways for this topic:",
