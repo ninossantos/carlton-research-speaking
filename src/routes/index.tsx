@@ -74,14 +74,11 @@ function Home() {
           <p className="mx-auto mt-2 max-w-xl text-sm text-muted">Remote or in person. Not a CLE.</p>
         </section>
 
-        <section aria-labelledby="rooms-heading">
-          <h2 id="rooms-heading" className="text-2xl">
-            Pick a Room
+        <section aria-labelledby="topics-heading">
+          <h2 id="topics-heading" className="text-2xl">
+            Pick a Topic
           </h2>
-          <p className="mt-2 max-w-2xl text-muted">
-            Each room is a topic. Click one. The opening of the hour plays. Then build the packet
-            for the people who will sit there.
-          </p>
+          <p className="mt-2 max-w-2xl text-muted">Then build the engagement for your audience.</p>
           <div className="mt-6">
             <RoomPicker value={briefing.talkId} onChange={pickRoom} />
           </div>
