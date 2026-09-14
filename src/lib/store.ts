@@ -10,6 +10,7 @@ export type BriefingState = {
   hostName: string;
   hostEmail: string;
   preferredWeek: string;
+  questions: string;
   setTalk: (talkId: TalkId) => void;
   setRole: (role: RoleId) => void;
   setFormat: (format: FormatId) => void;
@@ -18,6 +19,7 @@ export type BriefingState = {
   setHostName: (hostName: string) => void;
   setHostEmail: (hostEmail: string) => void;
   setPreferredWeek: (preferredWeek: string) => void;
+  setQuestions: (questions: string) => void;
 };
 
 const KEY = "cr-lunch-and-learn-draft";
@@ -44,10 +46,21 @@ function persist(state: BriefingState) {
     hostName,
     hostEmail,
     preferredWeek,
+    questions,
   } = state;
   localStorage.setItem(
     KEY,
-    JSON.stringify({ talkId, role, format, org, city, hostName, hostEmail, preferredWeek }),
+    JSON.stringify({
+      talkId,
+      role,
+      format,
+      org,
+      city,
+      hostName,
+      hostEmail,
+      preferredWeek,
+      questions,
+    }),
   );
 }
 
@@ -60,6 +73,7 @@ export const useBriefing = create<BriefingState>((set, get) => ({
   hostName: "",
   hostEmail: "",
   preferredWeek: "",
+  questions: "",
   setTalk: (talkId) => {
     set({ talkId });
     persist(get());
@@ -92,6 +106,10 @@ export const useBriefing = create<BriefingState>((set, get) => ({
     set({ preferredWeek });
     persist(get());
   },
+  setQuestions: (questions) => {
+    set({ questions });
+    persist(get());
+  },
 }));
 
 export function hydrateBriefing() {
@@ -105,5 +123,6 @@ export function hydrateBriefing() {
     hostName: saved.hostName ?? "",
     hostEmail: saved.hostEmail ?? "",
     preferredWeek: saved.preferredWeek ?? "",
+    questions: saved.questions ?? "",
   });
 }

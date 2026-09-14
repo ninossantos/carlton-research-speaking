@@ -14,7 +14,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Lunch & Learn with Carisa Carlton, M.A. Sixty minutes. Three topics on coercive control. Remote or in person.",
+          "Lunch & Learn with Carisa Carlton, M.A. Sixty minutes. Four topics. Remote or in person.",
       },
       { name: "theme-color", content: "#090a0c" },
     ],

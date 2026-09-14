@@ -9,7 +9,7 @@ export function RoomPicker({
   onChange: (id: TalkId) => void;
 }) {
   return (
-    <div className="grid gap-4 md:grid-cols-3">
+    <div className="grid gap-4 sm:grid-cols-2">
       {TALKS.map((talk, i) => {
         const selected = value === talk.id;
         return (

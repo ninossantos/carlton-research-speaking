@@ -85,6 +85,19 @@ export function InviteArchitect() {
           />
         ) : null}
       </div>
+      {s.talkId === "customize" ? (
+        <label className="mt-6 flex flex-col gap-1.5 text-sm font-semibold text-ink" htmlFor="questions-for-the-hour">
+          Questions for the hour
+          <textarea
+            id="questions-for-the-hour"
+            value={s.questions}
+            onChange={(e) => s.setQuestions(e.target.value)}
+            rows={5}
+            placeholder="Name the questions you want answered."
+            className="rounded-[var(--radius-sm)] border border-border bg-surface-2 px-3 py-2 font-normal text-fg outline-none placeholder:text-faint focus:border-gold"
+          />
+        </label>
+      ) : null}
     </section>
   );
 }

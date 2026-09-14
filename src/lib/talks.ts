@@ -1,4 +1,4 @@
-export type TalkId = "high-conflict" | "map-pattern" | "incident-vs-pattern";
+export type TalkId = "high-conflict" | "map-pattern" | "incident-vs-pattern" | "customize";
 export type RoleId = "attorney" | "judge" | "office-manager" | "hr";
 export type FormatId = "remote" | "in-person";
 
@@ -153,6 +153,35 @@ export const TALKS: Talk[] = [
       {
         at: 24400,
         line: "Change the model, and the record changes what it can show.",
+        prongs: [true, true, true, true],
+        visual: "lock",
+      },
+    ],
+  },
+  {
+    id: "customize",
+    title: "Customize Your Presentation",
+    short: "Customize Your Presentation",
+    promise:
+      "Contact us with questions you would like answered at your Lunch & Learn.",
+    takeaways: [
+      "Send the questions you want the hour to answer.",
+      "The hour stays sixty minutes: presentation plus questions.",
+      "The four prongs still decide whether a pattern holds.",
+    ],
+    artifacts: ["Your questions", "Your file", "Your audience", "The hour"],
+    opening: [
+      { at: 0, line: "Bring the questions.", prongs: [false, false, false, false], visual: "split" },
+      { at: 2600, line: "Name what the hour must answer.", prongs: [false, false, false, false], visual: "split" },
+      { at: 5400, line: "Sixty minutes. Presentation plus questions.", prongs: [false, false, false, false], visual: "split" },
+      { at: 8600, line: "The four prongs still gate the claim.", prongs: [false, false, false, false], visual: "split" },
+      { at: 11800, line: "Repetition: does the conduct return?", prongs: [true, false, false, false], visual: "lock" },
+      { at: 14600, line: "Relatedness: do the acts belong to one course?", prongs: [true, true, false, false], visual: "lock" },
+      { at: 17400, line: "Continuity: does the course hold across time?", prongs: [true, true, true, false], visual: "lock" },
+      { at: 20200, line: "Asymmetry: does one party organize the field?", prongs: [true, true, true, true], visual: "lock" },
+      {
+        at: 23600,
+        line: "A custom hour still has to earn a pattern.",
         prongs: [true, true, true, true],
         visual: "lock",
       },

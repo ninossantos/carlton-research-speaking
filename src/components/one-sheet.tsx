@@ -80,6 +80,9 @@ export function OneSheet({ input }: { input: PacketInput }) {
             <Row k="Organization" v={input.org.trim() || "—"} />
             <Row k="Host" v={input.hostName.trim() || "—"} />
             <Row k="Window" v={input.preferredWeek.trim() || "—"} />
+            {input.talkId === "customize" ? (
+              <Row k="Questions" v={input.questions.trim() || "Name the questions for the hour"} />
+            ) : null}
           </tbody>
         </table>
 

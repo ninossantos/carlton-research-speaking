@@ -57,6 +57,7 @@ function Home() {
     hostName: briefing.hostName,
     hostEmail: briefing.hostEmail,
     preferredWeek: briefing.preferredWeek,
+    questions: briefing.questions,
   };
 
   return (

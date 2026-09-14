@@ -19,12 +19,14 @@ export type PacketInput = {
   hostName: string;
   hostEmail: string;
   preferredWeek: string;
+  questions: string;
 };
 
 export function packetReady(input: PacketInput) {
   if (!input.talkId || !input.role || !input.format) return false;
   if (!input.org.trim() || !input.hostName.trim() || !input.hostEmail.trim()) return false;
   if (input.format === "in-person" && !input.city.trim()) return false;
+  if (input.talkId === "customize" && !input.questions.trim()) return false;
   return true;
 }
 
@@ -83,6 +85,9 @@ export function packetLetter(input: PacketInput) {
     `Organization: ${input.org.trim() || "[organization]"}`,
     `Who attends: ${role?.label ?? "[role]"}`,
     `Talk: ${talk.title}`,
+    input.talkId === "customize"
+      ? `Questions for the hour: ${input.questions.trim() || "[questions]"}`
+      : null,
     `Format: ${input.format === "remote" ? "Remote" : "In person"}`,
     input.format === "in-person" ? `City: ${input.city.trim() || "[city]"}` : "City: n/a (remote)",
     `Preferred window: ${input.preferredWeek.trim() || "[week]"}`,
@@ -97,7 +102,7 @@ export function packetLetter(input: PacketInput) {
     "",
     TERMS.notCle,
     TERMS.notDiagnostic,
-  ];
+  ].filter((line): line is string => line !== null);
   return lines.join("\n");
 }
 
