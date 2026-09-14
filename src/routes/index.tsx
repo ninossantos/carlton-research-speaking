@@ -90,7 +90,7 @@ function Home() {
 
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
               <div>
-                <h2 className="text-2xl">What the Presentation Leaves</h2>
+                <h2 className="text-2xl">Education the Presentation Provides</h2>
                 <ol className="mt-4 list-decimal space-y-3 pl-5 text-fg">
                   {talk.takeaways.map((item) => (
                     <li key={item}>{item}</li>
