@@ -64,9 +64,9 @@ function Home() {
           <h1 className="mt-4 font-display text-4xl uppercase tracking-wider text-ink sm:text-5xl md:text-6xl">
             Lunch-and-Learn
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-fg">
-            Carisa Carlton, M.A. Sixty minutes: presentation plus questions. Three rooms. The page
-            does the talk, then writes the invite.
+          <p className="mx-auto mt-5 max-w-2xl text-lg text-fg">Carisa Carlton, M.A.</p>
+          <p className="mx-auto mt-2 max-w-2xl text-lg text-fg">
+            Sixty minutes: presentation plus questions.
           </p>
           <p className="mx-auto mt-4 max-w-xl text-sm text-muted">
             For attorneys, judges, office managers, and human resources. Remote or in person. Not a
