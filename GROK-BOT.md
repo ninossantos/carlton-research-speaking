@@ -20,7 +20,7 @@ This repository is the speaking app. This is not the Coercive Control Observator
 Edit `src/lib/booking.ts`:
 
 - `TIDYCAL_REMOTE` — one event, 60 minutes, payment $750 required at booking (Stripe through TidyCal). Cancellation policy: 14 days for a full refund; date changes require 14 days. Inside 14 days the fee stays and the date stays.
-- `TIDYCAL_IN_PERSON` — availability only. Block two full consecutive calendar days. Do not collect travel in TidyCal. Travel is quoted after the city is named. Speaking fee $1,500 plus travel, both due before the date locks. Travel is non-refundable.
+- `TIDYCAL_IN_PERSON` — availability only. Block two full consecutive calendar days. Do not collect travel in TidyCal. Travel is quoted after the city is named. Speaking fee $1,500 plus travel, both due before the date locks. Travel is non-refundable. Outside the USA, ask for in-person prices. Published prices apply to remote presentations regardless of location.
 
 Until those strings are non-empty, the booking doors fall back to mailto:carisa@carltonresearch.com with the packet in the body.
 

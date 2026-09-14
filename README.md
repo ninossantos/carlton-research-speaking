@@ -17,7 +17,7 @@ Four topics:
 3. Incident-Model vs Pattern-Model of Coercive Control
 4. Customize Your Presentation
 
-The hour runs 60 minutes: presentation plus questions. Remote $750. In person $1,500 plus travel. Travel requires two full calendar days.
+The hour runs 60 minutes: presentation plus questions. Remote $750. In person $1,500 plus travel. Travel requires two full calendar days. Outside the USA, ask for in-person prices. Published prices apply to remote presentations regardless of location.
 
 ## Grok Bot
 

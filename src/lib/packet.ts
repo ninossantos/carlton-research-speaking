@@ -96,6 +96,7 @@ export function packetLetter(input: PacketInput) {
     input.format === "remote" ? TERMS.remoteFee : TERMS.inPersonFee,
     input.format === "remote" ? TERMS.remoteCancel : TERMS.travel,
     input.format === "in-person" ? TERMS.hold : TERMS.remoteChange,
+    TERMS.geoPrice,
     "",
     "Takeaways for this topic:",
     ...takes.map((t, i) => `${i + 1}. ${t}`),

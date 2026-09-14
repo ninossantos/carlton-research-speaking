@@ -43,10 +43,16 @@ export function InviteArchitect() {
           />
         </div>
         {s.format === "in-person" ? (
-          <p className="mt-3 text-sm text-muted">{TERMS.hold} {TERMS.travel}</p>
+          <p className="mt-3 text-sm text-muted">
+            {TERMS.hold} {TERMS.travel} {TERMS.geoPrice}
+          </p>
         ) : s.format === "remote" ? (
-          <p className="mt-3 text-sm text-muted">{TERMS.remoteFee} {TERMS.remoteCancel}</p>
-        ) : null}
+          <p className="mt-3 text-sm text-muted">
+            {TERMS.remoteFee} {TERMS.remoteCancel} {TERMS.geoPrice}
+          </p>
+        ) : (
+          <p className="mt-3 text-sm text-muted">{TERMS.geoPrice}</p>
+        )}
       </fieldset>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">

@@ -106,6 +106,8 @@ export function BookingPanel({ input }: { input: PacketInput }) {
         </div>
       </div>
 
+      <p className="mt-6 max-w-3xl text-sm text-gold-soft">{TERMS.geoPrice}</p>
+
       {!ready ? (
         <p className="mt-6 text-sm text-gold-soft">
           Finish the architect above. The booking doors open when the packet is complete.

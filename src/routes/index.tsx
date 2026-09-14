@@ -147,6 +147,7 @@ function Home() {
             <li>{TERMS.travel}</li>
             <li>{TERMS.hold}</li>
             <li>{TERMS.availability}</li>
+            <li>{TERMS.geoPrice}</li>
             <li>{TERMS.notCle}</li>
             <li>{TERMS.notDiagnostic}</li>
             <li>{TERMS.notClinical}</li>
