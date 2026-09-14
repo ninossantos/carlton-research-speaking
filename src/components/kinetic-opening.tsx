@@ -59,7 +59,6 @@ export function KineticOpening({ talk }: { talk: Talk }) {
   }, [now, talk.opening]);
 
   const progress = Math.min(1, now / duration);
-  const finished = now >= duration;
   const stackCount = talk.opening.filter((b) => b.visual === "stack" && b.at <= now).length;
   const shown =
     beat.visual === "flash"
@@ -68,9 +67,8 @@ export function KineticOpening({ talk }: { talk: Talk }) {
         ? Math.min(talk.artifacts.length, Math.max(stackCount, 1))
         : 0;
 
-  function pauseOrResume() {
-    if (finished) return;
-    setPlaying((on) => !on);
+  function pause() {
+    setPlaying(false);
   }
 
   function replay() {
@@ -92,10 +90,10 @@ export function KineticOpening({ talk }: { talk: Talk }) {
             variant="outline"
             size="sm"
             className="no-print"
-            disabled={finished && !playing}
-            onClick={pauseOrResume}
+            disabled={!playing}
+            onClick={pause}
           >
-            {playing ? "Pause" : "Resume"}
+            Pause
           </Button>
           <Button variant="outline" size="sm" className="no-print" onClick={replay}>
             Replay
