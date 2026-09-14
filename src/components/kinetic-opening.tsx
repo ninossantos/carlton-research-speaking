@@ -53,19 +53,19 @@ export function KineticOpening({ talk }: { talk: Talk }) {
   const progress = Math.min(1, now / duration);
   const stackCount = talk.opening.filter((b) => b.visual === "stack" && b.at <= now).length;
   const shown =
-    beat.visual === "lock"
-      ? talk.artifacts.length
-      : beat.visual === "flash"
-        ? 1
-        : Math.min(talk.artifacts.length, Math.max(stackCount, 1));
+    beat.visual === "flash"
+      ? 1
+      : beat.visual === "stack"
+        ? Math.min(talk.artifacts.length, Math.max(stackCount, 1))
+        : 0;
 
   return (
     <section
-      aria-label="Opening of the hour"
+      aria-label="Opening of the presentation"
       className="overflow-hidden rounded-[var(--radius-lg)] border border-border bg-surface shadow-[var(--shadow-border)]"
     >
       <div className="flex items-center justify-between gap-3 border-b border-border px-5 py-3">
-        <p className="text-xs font-bold uppercase tracking-widest text-primary">Opening of the Hour</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-primary">Opening of the Presentation</p>
         <div className="flex gap-2">
           <Button
             variant="ghost"
@@ -111,7 +111,7 @@ export function KineticOpening({ talk }: { talk: Talk }) {
 
           {beat.visual === "flash" ? <Slate label={talk.artifacts[0]} active /> : null}
 
-          {(beat.visual === "stack" || beat.visual === "lock") && (
+          {beat.visual === "stack" && (
             <ul className="flex flex-wrap gap-2">
               {talk.artifacts.slice(0, shown).map((item) => (
                 <li
