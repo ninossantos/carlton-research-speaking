@@ -134,7 +134,7 @@ export const TALKS: Talk[] = [
     id: "incident-vs-pattern",
     title: "Incident-Model vs Pattern-Model of Coercive Control",
     short: "Incident-Model vs Pattern-Model",
-    promise: "An incident asks what happened that day. A pattern asks what held across days.",
+    promise: "The incident model asks what happened today. A pattern model asks what has been happening all along.",
     takeaways: [
       "The incident model looks for a discrete event, often a visible injury, often a single day.",
       "The pattern model tests a course of conduct: repetition, relatedness, continuity, and asymmetry.",
