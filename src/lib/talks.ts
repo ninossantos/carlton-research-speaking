@@ -102,9 +102,9 @@ export const TALKS: Talk[] = [
   },
   {
     id: "map-pattern",
-    title: "How to Map a Pattern of Coercive Control",
-    short: "How to Map a Pattern",
-    promise: "A file is a sequence. The hour shows how to read it without turning conflict into a pattern.",
+    title: "Mapping a Pattern of Coercive Control",
+    short: "Mapping a Pattern of Coercive Control",
+    promise: "How to map repetition, relatedness, continuity, and asymmetry to form a pattern or disprove a pattern.",
     takeaways: [
       "Read texts, email, location logs, financial controls, and litigation history in sequence.",
       "Isolated or clustered behaviors do not establish a pattern.",

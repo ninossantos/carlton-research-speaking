@@ -13,7 +13,7 @@ Option E: Briefing Room plus Invite Architect.
 Three rooms:
 
 1. Distinguish High Conflict from Coercive Control
-2. How to Map a Pattern of Coercive Control
+2. Mapping a Pattern of Coercive Control
 3. Incident-Model vs Pattern-Model of Coercive Control
 
 The hour runs 60 minutes: presentation plus questions. Remote $750. In person $1,500 plus travel. Travel requires two full calendar days.
