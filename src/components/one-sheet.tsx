@@ -21,7 +21,7 @@ export function OneSheet({ input }: { input: PacketInput }) {
 
   if (!talk) {
     return (
-      <p className="text-muted">Pick a room. The one-sheet writes itself from that hour.</p>
+      <p className="text-muted">Pick a topic. The one-sheet writes itself from that hour.</p>
     );
   }
 
@@ -56,7 +56,7 @@ export function OneSheet({ input }: { input: PacketInput }) {
             The Hour
           </caption>
           <tbody>
-            <Row k="Room" v={role ? role.label : "Name the role in the architect"} />
+            <Row k="Audience" v={role ? role.label : "Name the role in the architect"} />
             <Row
               k="Format"
               v={

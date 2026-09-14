@@ -8,9 +8,9 @@ This is not the Coercive Control Observatory, not Instruments, and not the Law T
 
 ## What this app is
 
-Option E: Briefing Room plus Invite Architect.
+Option E: Briefing plus Invite Architect.
 
-Three rooms:
+Three topics:
 
 1. Distinguish High Conflict from Coercive Control
 2. Mapping a Pattern of Coercive Control

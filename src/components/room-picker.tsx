@@ -26,7 +26,7 @@ export function RoomPicker({
             )}
           >
             <span className="text-xs font-bold uppercase tracking-[0.08em] text-gold">
-              Room {String(i + 1).padStart(2, "0")}
+              Topic {String(i + 1).padStart(2, "0")}
             </span>
             <span className="mt-3 font-display text-xl leading-snug text-ink">{talk.title}</span>
             <span className="mt-3 text-sm text-muted">{talk.promise}</span>

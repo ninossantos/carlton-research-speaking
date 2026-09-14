@@ -15,7 +15,7 @@ export function InviteArchitect() {
       </p>
 
       <fieldset className="mt-8">
-        <legend className="text-sm font-bold text-ink">Who sits in the room</legend>
+        <legend className="text-sm font-bold text-ink">Who attends</legend>
         <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
           {ROLES.map((role) => (
             <Choice

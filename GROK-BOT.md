@@ -24,7 +24,7 @@ Edit `src/lib/booking.ts`:
 
 Until those strings are non-empty, the booking doors fall back to mailto:carisa@carltonresearch.com with the packet in the body.
 
-TidyCal intake fields to collect: organization, host name, email, talk title, role in the room (attorney / judge / office manager / human resources), city (in-person only), preferred week.
+TidyCal intake fields to collect: organization, host name, email, talk title, who attends (attorney / judge / office manager / human resources), city (in-person only), preferred week.
 
 After a TidyCal in-person hold, send the travel quote within two business days. The date locks when both the $1,500 and the quoted travel clear.
 

@@ -17,13 +17,17 @@ function isTalkId(v: unknown): v is TalkId {
 
 export const Route = createFileRoute("/")({
   validateSearch: (search: Record<string, unknown>) => ({
-    room: isTalkId(search.room) ? search.room : undefined,
+    topic: isTalkId(search.topic)
+      ? search.topic
+      : isTalkId(search.room)
+        ? search.room
+        : undefined,
   }),
   component: Home,
 });
 
 function Home() {
-  const { room } = Route.useSearch();
+  const { topic } = Route.useSearch();
   const navigate = useNavigate({ from: "/" });
   const briefing = useBriefing();
   const talk = talkById(briefing.talkId);
@@ -33,12 +37,12 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    if (room) useBriefing.getState().setTalk(room);
-  }, [room]);
+    if (topic) useBriefing.getState().setTalk(topic);
+  }, [topic]);
 
-  function pickRoom(id: TalkId) {
+  function pickTopic(id: TalkId) {
     briefing.setTalk(id);
-    void navigate({ search: { room: id } });
+    void navigate({ search: { topic: id } });
     window.setTimeout(() => {
       document.getElementById("briefing")?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 50);
@@ -80,7 +84,7 @@ function Home() {
           </h2>
           <p className="mt-2 max-w-2xl text-muted">Then build the engagement for your audience.</p>
           <div className="mt-6">
-            <RoomPicker value={briefing.talkId} onChange={pickRoom} />
+            <RoomPicker value={briefing.talkId} onChange={pickTopic} />
           </div>
         </section>
 
