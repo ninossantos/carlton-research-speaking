@@ -132,12 +132,14 @@ function Home() {
           <ul className="mt-4 max-w-3xl space-y-2 text-sm text-muted">
             <li>{TERMS.duration}</li>
             <li>{TERMS.remoteFee}</li>
-            <li>{TERMS.remoteCancel}</li>
-            <li>{TERMS.remoteChange}</li>
+            {TERMS.remotePoints.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
             <li>{TERMS.inPersonFee}</li>
-            <li>{TERMS.travel}</li>
+            {TERMS.inPersonPoints.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
             <li>{TERMS.hold}</li>
-            <li>{TERMS.availability}</li>
             <li>{TERMS.geoPrice}</li>
             <li>{TERMS.notCle}</li>
             <li>{TERMS.notDiagnostic}</li>

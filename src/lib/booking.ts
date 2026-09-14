@@ -15,13 +15,21 @@ export const IN_PERSON_HOLD_DAYS = 2;
 
 export const TERMS = {
   duration: "The lunch-and-learn runs 60 minutes: presentation plus questions.",
-  remoteFee: `Remote fee: $${REMOTE_FEE.toLocaleString("en-US")}, payable at booking.`,
-  remoteCancel: `Cancel at least ${NOTICE_DAYS} days before the date: the $${REMOTE_FEE.toLocaleString("en-US")} returns in full.`,
-  remoteChange: `Change the date at least ${NOTICE_DAYS} days before: the hour moves. Inside ${NOTICE_DAYS} days, the fee stays and the date stays.`,
-  inPersonFee: `In-person speaking fee: $${IN_PERSON_FEE.toLocaleString("en-US")}, payable at booking.`,
-  travel: "Travel is quoted for the city named, from Phoenix, Arizona. Travel is non-refundable. Travel plus the speaking fee must both be paid before the date locks.",
+  remoteFee: `Remote fee: $${REMOTE_FEE.toLocaleString("en-US")}.`,
+  remotePoints: [
+    "Payable upon booking.",
+    `Cancel ${NOTICE_DAYS} days ahead: full refund.`,
+    `Change date and time ${NOTICE_DAYS} days ahead: permitted, no change fees.`,
+    `Cancellation or change less than ${NOTICE_DAYS} days ahead: no refund or change permitted.`,
+  ],
+  inPersonFee: `In-person speaking fee: $${IN_PERSON_FEE.toLocaleString("en-US")} plus travel expenses.`,
+  inPersonPoints: [
+    "Travel quoted for the presentation location.",
+    "Travel fees paid upon booking are non-refundable.",
+    `Speaking fee is refundable if canceled ${NOTICE_DAYS} days in advance.`,
+    "TidyCal shows availability only; payment confirms the date.",
+  ],
   hold: `In-person holds ${IN_PERSON_HOLD_DAYS} full calendar days: travel plus the hour.`,
-  availability: "TidyCal shows in-person availability only. A travel quote follows the city you name. The date locks when both fees clear.",
   geoPrice:
     "Outside the USA, ask for in-person prices. Published prices apply to remote presentations regardless of location.",
   notCle: "Not a CLE.",

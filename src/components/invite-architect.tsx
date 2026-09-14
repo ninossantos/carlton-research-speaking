@@ -46,16 +46,16 @@ export function BookingIntake() {
           <Choice
             selected={s.format === "in-person"}
             onClick={() => s.setFormat("in-person")}
-            label="In person · $1,500 + travel"
+            label="In person · $1,500 + travel expenses"
           />
         </div>
         {s.format === "in-person" ? (
           <p className="mt-3 text-sm text-muted">
-            {TERMS.hold} {TERMS.travel} {TERMS.geoPrice}
+            {TERMS.inPersonPoints.join(" ")} {TERMS.hold} {TERMS.geoPrice}
           </p>
         ) : s.format === "remote" ? (
           <p className="mt-3 text-sm text-muted">
-            {TERMS.remoteFee} {TERMS.remoteCancel} {TERMS.geoPrice}
+            {TERMS.remoteFee} {TERMS.remotePoints.join(" ")} {TERMS.geoPrice}
           </p>
         ) : (
           <p className="mt-3 text-sm text-muted">{TERMS.geoPrice}</p>

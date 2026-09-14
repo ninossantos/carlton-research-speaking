@@ -71,10 +71,10 @@ export function OneSheet({ input }: { input: PacketInput }) {
               k="Fee"
               v={
                 input.format === "remote"
-                  ? `$${REMOTE_FEE.toLocaleString("en-US")}, payable at booking`
+                  ? `$${REMOTE_FEE.toLocaleString("en-US")}, payable upon booking`
                   : input.format === "in-person"
-                    ? `$${IN_PERSON_FEE.toLocaleString("en-US")} plus travel, both due to lock the date`
-                    : "Remote $750 · In person $1,500 plus travel"
+                    ? `$${IN_PERSON_FEE.toLocaleString("en-US")} plus travel expenses`
+                    : "Remote $750 · In person $1,500 plus travel expenses"
               }
             />
             <Row k="Organization" v={input.org.trim() || "—"} />

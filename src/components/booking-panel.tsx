@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import {
   IN_PERSON_FEE,
-  NOTICE_DAYS,
   REMOTE_FEE,
   TERMS,
   mailtoHref,
@@ -34,10 +33,9 @@ export function BookingPanel({ input }: { input: PacketInput }) {
             ${REMOTE_FEE.toLocaleString("en-US")}
           </p>
           <ul className="mt-4 space-y-2 text-sm text-gold-soft">
-            <li>Payable at booking.</li>
-            <li>Cancel {NOTICE_DAYS} days ahead: full refund.</li>
-            <li>Change {NOTICE_DAYS} days ahead: the hour moves.</li>
-            <li>Inside {NOTICE_DAYS} days: the fee stays and the date stays.</li>
+            {TERMS.remotePoints.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
           </ul>
           <Button
             className="mt-6 w-full"
@@ -62,14 +60,14 @@ export function BookingPanel({ input }: { input: PacketInput }) {
           <p className="text-xs font-bold uppercase tracking-[0.08em] text-gold">In Person</p>
           <p className="mt-2 font-display text-3xl text-surface">
             ${IN_PERSON_FEE.toLocaleString("en-US")}
-            <span className="ml-2 font-sans text-base font-semibold text-gold-soft">plus travel</span>
+            <span className="ml-2 font-sans text-base font-semibold text-gold-soft">
+              plus travel expenses
+            </span>
           </p>
           <ul className="mt-4 space-y-2 text-sm text-gold-soft">
-            <li>Two full calendar days held.</li>
-            <li>Travel quoted for the city named, from Phoenix, Arizona.</li>
-            <li>Travel is non-refundable.</li>
-            <li>Speaking fee plus travel, both paid before the date locks.</li>
-            <li>TidyCal shows availability only. The quote locks the date.</li>
+            {TERMS.inPersonPoints.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
           </ul>
           <div className="mt-6 flex flex-col gap-2">
             <Button

@@ -19,20 +19,20 @@ This repository is the speaking app. This is not the Coercive Control Observator
 
 Edit `src/lib/booking.ts`:
 
-- `TIDYCAL_REMOTE` — one event, 60 minutes, payment $750 required at booking (Stripe through TidyCal). Cancellation policy: 14 days for a full refund; date changes require 14 days. Inside 14 days the fee stays and the date stays.
-- `TIDYCAL_IN_PERSON` — availability only. Block two full consecutive calendar days. Do not collect travel in TidyCal. Travel is quoted after the city is named. Speaking fee $1,500 plus travel, both due before the date locks. Travel is non-refundable. Outside the USA, ask for in-person prices. Published prices apply to remote presentations regardless of location.
+- `TIDYCAL_REMOTE` — one event, 60 minutes, $750 payable upon booking. Cancel 14 days ahead: full refund. Change date and time 14 days ahead: permitted, no change fees. Cancellation or change less than 14 days ahead: no refund or change permitted.
+- `TIDYCAL_IN_PERSON` — availability only. Block two full consecutive calendar days. Do not collect travel in TidyCal. Travel quoted for the presentation location. Travel fees paid upon booking are non-refundable. Speaking fee $1,500 is refundable if canceled 14 days in advance. TidyCal shows availability only; payment confirms the date. Outside the USA, ask for in-person prices. Published prices apply to remote presentations regardless of location.
 
 Until those strings are non-empty, the booking doors fall back to mailto:carisa@carltonresearch.com with the packet in the body.
 
 TidyCal intake fields to collect: organization, host name, email, talk title, audience (attorneys / judges / evaluators / treatment providers), city (in-person only), preferred week.
 
-After a TidyCal in-person hold, send the travel quote within two business days. The date locks when both the $1,500 and the quoted travel clear.
+After a TidyCal in-person hold, send the travel quote within two business days. Payment of travel plus the speaking fee confirms the date.
 
 ## Invite after payment
 
 The invite does not live on the homepage. Hosts build it at https://speaking.carltonresearch.com/invite after the date locks and the fee clears.
 
-TidyCal can redirect there. Redirect requires TidyCal Individual ($29 lifetime), Pro, or Agency. Free TidyCal cannot redirect. If the account is on Free, put the invite URL in the confirmation email instead. Do not add a new platform.
+TidyCal can redirect there. This account is on TidyCal Pro, so redirect is available. Do not add a new platform.
 
 For the remote paid booking type:
 
