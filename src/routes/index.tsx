@@ -90,7 +90,7 @@ function Home() {
 
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
               <div>
-                <h2 className="text-2xl">What the Hour Leaves</h2>
+                <h2 className="text-2xl">What the Presentation Leaves</h2>
                 <ol className="mt-4 list-decimal space-y-3 pl-5 text-fg">
                   {talk.takeaways.map((item) => (
                     <li key={item}>{item}</li>
@@ -116,14 +116,6 @@ function Home() {
         <BookingIntake />
 
         <BookingPanel input={packet} />
-
-        <p className="text-sm text-muted">
-          After the date locks and the fee clears,{" "}
-          <a href="/invite" className="text-primary underline underline-offset-4 hover:text-ink">
-            build an invite
-          </a>
-          .
-        </p>
 
         <section aria-labelledby="terms-heading" className="border-t border-border pt-10">
           <h2 id="terms-heading" className="text-2xl">
