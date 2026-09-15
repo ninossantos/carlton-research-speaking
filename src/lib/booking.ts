@@ -1,5 +1,5 @@
-/** TidyCal event URLs. Paste the live links before Grok Bot deploys. */
-export const TIDYCAL_REMOTE = "";
+/** Remote Book CTA URL (Stripe Payment Link). In-person stays empty; quote form handles travel. */
+export const TIDYCAL_REMOTE = "https://book.stripe.com/3cI4gz1ELaAR63A4Fh00002";
 export const TIDYCAL_IN_PERSON = "";
 
 export const CONTACT_EMAIL = "carisa@carltonresearch.com";
