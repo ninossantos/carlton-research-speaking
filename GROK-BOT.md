@@ -165,20 +165,23 @@ Commit. Deploy. Until those strings are non-empty, the Book the Presentation opt
 - The quote route already sends noindex robots meta.
 - In Cloudflare, add the same X-Robots-Tag rule for URI Path contains `/quote`.
 
-**Do not turn on email delivery until Carisa confirms Google Workspace OAuth is ready.**
+**Quote email delivery is ON.** Carisa authorized Google Workspace OAuth on 15 September 2026.
 
 Workspace mail for this product:
 
-- From / Reply-To identity: `carisa@carltonresearch.com`
+- From: `Carlton Research, LLC <carisa@carltonresearch.com>`
+- Reply-To on quote mail: the host who submitted the form
+- To: `carisa@carltonresearch.com`
 - Domain: `carltonresearch.com`
-- Auth: Google OAuth for Gmail send. Same pattern as Smartlead.
+- Auth: Google OAuth, scope `gmail.send`, Internal consent
+- Cloud project name: CR Grok Build Mail (`cr-grok-build-mail`)
 - Do not enable 2FA. Do not use App Passwords.
 - Do not send as `mscarisa@gmail.com`. That inbox is only where she reads forwarded mail.
 - `insights@carltonresearch.com` is an alias for Insights-branded mail only. Lunch & Learn sends as `carisa@`.
-- Do not inject an outreach signature on quote-request mail. Quote mail is a notice to Carisa. Reply-To is the host.
-- Do not use Zoho. Do not store passwords in Excel.
+- Do not inject an outreach signature on quote-request mail.
+- Do not use Zoho. Do not store passwords in Excel. Do not commit secrets.
 
-Env stub (no secrets in git):
+Public env (safe to set on the host):
 
 ```
 MAIL_FROM=carisa@carltonresearch.com
@@ -186,14 +189,21 @@ MAIL_DOMAIN=carltonresearch.com
 MAIL_AUTH=google_oauth
 MAIL_ALIAS_INSIGHTS=insights@carltonresearch.com
 QUOTE_TO=carisa@carltonresearch.com
-GOOGLE_OAUTH_CLIENT_ID=
-GOOGLE_OAUTH_CLIENT_SECRET=
-GOOGLE_OAUTH_REFRESH_TOKEN=
 ```
 
-Grok Bot fills the three `GOOGLE_OAUTH_*` values on the speaking host after a one-time Gmail send consent as `carisa@carltonresearch.com`. Scope: `https://www.googleapis.com/auth/gmail.send`. OAuth consent screen: Internal. Then redeploy.
+Host secrets (already set, never in git):
 
-Until those three are set, the quote form validates and then tells the visitor the request was not emailed.
+```
+GOOGLE_OAUTH_CLIENT_ID
+GOOGLE_OAUTH_CLIENT_SECRET
+GOOGLE_OAUTH_REFRESH_TOKEN
+```
+
+Confirm those three exist on the speaking host. Redeploy. Do not print them. Do not paste them into GitHub.
+
+If they are missing, stop and tell Carisa. Do not fall back to SMTP or App Passwords.
+
+After deploy, submit one test on `https://speaking.carltonresearch.com/quote`. Confirm `carisa@carltonresearch.com` receives `Travel quote request:` and that Reply-To is the test host.
 
 In-person dates are not held on TidyCal from the public site. After a quote is accepted and paid, hold two days on the Google Calendar: the presentation day plus the day before for travel. Then email the host `https://speaking.carltonresearch.com/invite?format=in-person`.
 
@@ -204,6 +214,7 @@ In-person dates are not held on TidyCal from the public site. After a quote is a
 3. After a real remote booking, confirm the browser lands on `speaking.carltonresearch.com/invite` with name, email, date, time, and format=remote filled.
 4. Open the in-person URL. Confirm $0, city question present, **no** redirect, **no** Stripe.
 5. After a test in-person hold, confirm the travel-hold all-day busy event exists on the day before.
+6. Submit one test on `https://speaking.carltonresearch.com/quote`. Confirm Carisa receives the quote request at `carisa@carltonresearch.com` and that Reply-To is the test host.
 
 ### What Grok Bot does not do
 
@@ -214,7 +225,7 @@ In-person dates are not held on TidyCal from the public site. After a quote is a
 - Do not create a third booking type for CLE.
 - Do not link `/invite` from any public page.
 - Do not link `/quote` from WordPress or any public menu.
-- Do not turn on quote email until Carisa confirms Google Workspace OAuth (gmail.send).
+- Quote email is ON via Workspace Gmail OAuth. Keep `GOOGLE_OAUTH_*` on the host only.
 - Do not enable 2FA. Do not use App Passwords.
 - Do not send as mscarisa@gmail.com.
 
