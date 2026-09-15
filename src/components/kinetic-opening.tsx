@@ -126,8 +126,15 @@ export function KineticOpening({ talk }: { talk: Talk }) {
         <div className="flex flex-col gap-4">
           {beat.visual === "split" ? (
             <div className="grid grid-cols-2 gap-3">
-              <Slate label="High conflict" active={now < 8400} dim />
-              <Slate label="Coercive control" active={now >= 2800} />
+              <Slate
+                label="High conflict"
+                active={now < (talk.opening.find((b) => b.visual !== "split")?.at ?? duration)}
+                dim
+              />
+              <Slate
+                label="Coercive control"
+                active={now >= (talk.opening.filter((b) => b.visual === "split")[1]?.at ?? 0)}
+              />
             </div>
           ) : null}
 
