@@ -12,7 +12,6 @@ export function BookingPanel({ input }: { input: PacketInput }) {
   const ready = packetReady(input);
   const mail = mailtoFor(input);
   const remote = tidyCalOrMailto("remote", mailtoHref(mail.subject, mail.body));
-  const inPerson = tidyCalOrMailto("in-person", mailtoHref(mail.subject, mail.body));
   const quote = mailtoHref(
     mail.subject.replace("request", "travel quote"),
     mail.body,
@@ -69,25 +68,7 @@ export function BookingPanel({ input }: { input: PacketInput }) {
               <li key={line}>{line}</li>
             ))}
           </ul>
-          <div className="mt-6 flex flex-col gap-2">
-            <Button
-              variant="outline"
-              className="w-full border-gold text-surface hover:bg-surface hover:text-ink"
-              disabled={!ready || input.format !== "in-person"}
-              asChild={ready && input.format === "in-person"}
-            >
-              {ready && input.format === "in-person" ? (
-                <a
-                  href={inPerson.href}
-                  target={inPerson.external ? "_blank" : undefined}
-                  rel="noreferrer"
-                >
-                  Check availability
-                </a>
-              ) : (
-                <span>Check availability</span>
-              )}
-            </Button>
+          <div className="mt-6">
             <Button
               variant="primary"
               className="w-full"
