@@ -121,21 +121,11 @@ function Home() {
           <h2 id="terms-heading" className="text-2xl">
             Terms
           </h2>
-          <ul className="mt-4 max-w-3xl space-y-2 text-sm text-muted">
-            <li>{TERMS.duration}</li>
-            <li>{TERMS.remoteFee}</li>
-            {TERMS.remotePoints.map((line) => (
-              <li key={line}>{line}</li>
+          <div className="mt-4 max-w-3xl space-y-2 text-sm text-muted">
+            {TERMS.lines.map((line) => (
+              <p key={line}>{line}</p>
             ))}
-            <li>{TERMS.inPersonFee}</li>
-            {TERMS.inPersonPoints.map((line) => (
-              <li key={line}>{line}</li>
-            ))}
-            <li>{TERMS.geoPrice}</li>
-            <li>{TERMS.notCle}</li>
-            <li>{TERMS.notDiagnostic}</li>
-            <li>{TERMS.notClinical}</li>
-          </ul>
+          </div>
         </section>
       </main>
       <SiteFooter />
