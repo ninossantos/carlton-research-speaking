@@ -88,7 +88,7 @@ Save. Copy the public booking URL. It looks like `https://tidycal.com/<username>
 |---|---|
 | Title | Lunch & Learn In Person |
 | URL slug | lunch-and-learn-in-person |
-| Description | 60 minutes: presentation plus questions. Fee $1,500 plus travel expenses. Two days are held to accommodate travel: the day of the presentation plus one day before for travel. TidyCal shows availability only. Payment confirms the date. Travel quoted for the presentation location. Travel fees paid upon booking are non-refundable. Speaking fee is refundable if canceled 14 days in advance. Outside the USA, ask for in-person prices. Not a CLE. |
+| Description | Lunch & Learn runs 60 minutes: presentation plus questions. Fee $1,500 plus travel expenses. Travel fees quoted for the presentation location. Travel fees paid upon booking are non-refundable. Speaking fee is refundable if canceled 14 days in advance. Calendar shows availability only; payment confirms the date. Outside the USA, ask for in-person presentation rates. Not a CLE. |
 | Calendar | Same Google Calendar |
 | Duration | 60 minutes (this is the presentation, not the travel day) |
 | Location | Custom location / in person. Text: Presentation location named by the host. Travel quoted after the city is named. |
@@ -142,7 +142,7 @@ Edit `src/lib/booking.ts`:
 - `TIDYCAL_REMOTE` = the public remote URL
 - `TIDYCAL_IN_PERSON` = the public in-person URL
 
-Commit. Deploy. Until those strings are non-empty, the Book the Presentation doors fall back to mailto:carisa@carltonresearch.com with the packet in the body.
+Commit. Deploy. Until those strings are non-empty, the Book the Presentation options fall back to mailto:carisa@carltonresearch.com with the packet in the body.
 
 ### Invitation page is unlisted and not indexed
 
@@ -179,7 +179,7 @@ Commit. Deploy. Until those strings are non-empty, the Book the Presentation doo
 - American English
 - Codebook is Title Case
 - Not a CLE.
-- Footer: Not diagnostic of a pattern of coercive control. Not legal advice. Carlton Research does not perform clinical evaluations and does not recommend parenting time.
+- Footer: Lunch & Learn is a proprietary program of Carlton Research, LLC. All rights reserved. Not a CLE.
 
 ## Brand
 
