@@ -9,6 +9,10 @@ export function mailFrom() {
   return env("MAIL_FROM") || CONTACT_EMAIL;
 }
 
+export function mailTo() {
+  return env("QUOTE_TO") || CONTACT_EMAIL;
+}
+
 export function quoteMailConfigured() {
   if ((env("MAIL_AUTH") || "google_oauth") !== "google_oauth") return false;
   return Boolean(
@@ -26,7 +30,7 @@ function headerValue(value: string) {
 
 function rfc822(data: QuotePayload) {
   const from = `${FIRM} <${mailFrom()}>`;
-  const to = env("QUOTE_TO") || CONTACT_EMAIL;
+  const to = mailTo();
   const subject = `Travel quote request: ${data.name}`;
   const lines = [
     `From: ${from}`,
