@@ -82,7 +82,7 @@ function InvitePage() {
             can send inside the organization.
           </p>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-muted">
-            For in-person presentations, wait until travel and the speaking fee have both cleared.
+            For in-person presentations, wait until travel fees and the speaking fee quote are provided.
             Remote presentations open this page once TidyCal has taken the fee.
           </p>
         </section>
@@ -141,14 +141,21 @@ function InvitePage() {
               label="Date and time of the presentation"
               value={s.preferredWeek}
               onChange={s.setPreferredWeek}
-              placeholder="12 October 2026, 12:00 p.m."
+              placeholder="Enter preferred date and time"
             />
             {s.format === "in-person" ? (
               <Field
                 label="City and state"
                 value={s.city}
                 onChange={s.setCity}
-                placeholder="Phoenix, Arizona"
+                placeholder="Enter your location"
+              />
+            ) : s.format === "remote" ? (
+              <Field
+                label="Location"
+                value={s.city}
+                onChange={s.setCity}
+                placeholder="Enter your location or remote platform, e.g., Zoom"
               />
             ) : null}
             {s.talkId === "customize" ? (
