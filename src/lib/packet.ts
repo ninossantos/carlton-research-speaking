@@ -43,12 +43,12 @@ export function presentationTitle(input: PacketInput) {
 
 export function invitationCopy(input: PacketInput) {
   const talk = talkById(input.talkId);
-  const role = roleById(input.role);
   if (!talk || !input.format) return "";
 
   const org = input.org.trim() || "our office";
-  const title =
-    presentationTitle(input) || (talk.id === "customize" ? "Insert your topic" : talk.title);
+  const title = talk.title;
+  const description =
+    talk.id === "customize" ? input.questions.trim() || "Insert your topic" : talk.promise;
   const where =
     input.format === "remote"
       ? "remote"
@@ -56,16 +56,18 @@ export function invitationCopy(input: PacketInput) {
         ? `in person in ${input.city.trim()}`
         : "in person";
   const week = input.preferredWeek.trim();
-  const lens = role ? ` Framed for ${role.label.toLowerCase()}.` : "";
+  const host = input.hostName.trim() || "TBD";
+  const hostEmail = input.hostEmail.trim();
+  const questions = hostEmail ? `${host}, ${hostEmail}` : host;
 
   return [
     `Please join a 60-minute Lunch & Learn with ${PRINCIPAL}, ${FIRM}.`,
     `Title: ${title}.`,
-    talk.id === "customize" ? "" : talk.promise,
-    `Audience: ${role ? role.label.toLowerCase() : "the organization"}. Format: ${where}.${lens}`,
+    description,
+    `Format: ${where}.`,
     week ? `Date: ${week}.` : "",
-    `Host: ${input.hostName.trim() || "TBD"}, ${org}.`,
-    `Questions: ${CONTACT_EMAIL}.`,
+    `Host: ${host}, ${org}.`,
+    `Questions: ${questions}.`,
   ]
     .filter(Boolean)
     .join(" ");
@@ -96,7 +98,7 @@ export function packetLetter(input: PacketInput) {
     ...takes.map((t, i) => `${i + 1}. ${t}`),
     "",
     TERMS.notCle,
-    TERMS.notDiagnostic,
+    TERMS.notLegal,
   ].filter((line): line is string => line !== null);
   return lines.join("\n");
 }

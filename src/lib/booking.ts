@@ -15,6 +15,7 @@ export const IN_PERSON_HOLD_DAYS = 2;
 
 export const TERMS = {
   duration: "The lunch-and-learn runs 60 minutes: presentation plus questions.",
+  presentationLength: "Lunch & Learn runs 60 minutes: presentation plus questions.",
   remoteFee: `Remote presentation fee: $${REMOTE_FEE.toLocaleString("en-US")}.`,
   remotePoints: [
     "Payable upon booking.",
@@ -24,10 +25,9 @@ export const TERMS = {
   ],
   inPersonFee: `In-person speaking fee: $${IN_PERSON_FEE.toLocaleString("en-US")} plus travel expenses.`,
   inPersonPoints: [
-    "Two days are held to accommodate travel: the day of the presentation plus one day before for travel.",
     "Travel fees quoted for the presentation location. Travel fees paid upon booking are non-refundable.",
     `Speaking fee is refundable if canceled ${NOTICE_DAYS} days in advance.`,
-    "TidyCal shows availability only; payment confirms the date.",
+    "Calendar shows availability only; payment confirms the date.",
   ],
   hold: "Two days are held to accommodate travel: the day of the presentation plus one day before for travel.",
   travel:
@@ -37,6 +37,7 @@ export const TERMS = {
   geoPrice:
     "Published prices apply to remote presentations regardless of location. Outside the USA, ask for in-person presentation rates.",
   notCle: "Not a CLE.",
+  notLegal: "Not legal advice.",
   notDiagnostic: "Not diagnostic of a pattern of coercive control. Not legal advice.",
   notClinical:
     "Carlton Research does not perform clinical evaluations and does not recommend parenting time.",
