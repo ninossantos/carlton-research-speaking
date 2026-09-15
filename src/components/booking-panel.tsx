@@ -12,10 +12,12 @@ export function BookingPanel({ input }: { input: PacketInput }) {
   const ready = packetReady(input);
   const mail = mailtoFor(input);
   const remote = tidyCalOrMailto("remote", mailtoHref(mail.subject, mail.body));
-  const quote = mailtoHref(
-    mail.subject.replace("request", "travel quote"),
-    mail.body,
-  );
+  const quoteParams = new URLSearchParams();
+  if (input.talkId) quoteParams.set("topic", input.talkId);
+  if (input.hostName.trim()) quoteParams.set("name", input.hostName.trim());
+  if (input.hostEmail.trim()) quoteParams.set("email", input.hostEmail.trim());
+  if (input.city.trim()) quoteParams.set("address", input.city.trim());
+  const quoteHref = quoteParams.size ? `/quote?${quoteParams.toString()}` : "/quote";
 
   return (
     <section
@@ -69,17 +71,8 @@ export function BookingPanel({ input }: { input: PacketInput }) {
             ))}
           </ul>
           <div className="mt-6">
-            <Button
-              variant="primary"
-              className="w-full"
-              disabled={!ready || input.format !== "in-person"}
-              asChild={ready && input.format === "in-person"}
-            >
-              {ready && input.format === "in-person" ? (
-                <a href={quote}>Send packet for travel quote</a>
-              ) : (
-                <span>Send packet for travel quote</span>
-              )}
+            <Button variant="primary" className="w-full" asChild>
+              <a href={quoteHref}>Request a travel quote</a>
             </Button>
           </div>
         </div>

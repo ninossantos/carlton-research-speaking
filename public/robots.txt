@@ -2,7 +2,11 @@ User-agent: *
 Allow: /
 Disallow: /invite
 Disallow: /invite/
+Disallow: /quote
+Disallow: /quote/
 
 User-agent: Googlebot
 Disallow: /invite
 Disallow: /invite/
+Disallow: /quote
+Disallow: /quote/
