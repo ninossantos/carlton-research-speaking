@@ -41,7 +41,7 @@ export function OneSheet({ input }: { input: PacketInput }) {
           {input.talkId === "customize" ? title || "Insert your topic" : talk.title}
         </h3>
         {talk.id === "customize" ? null : <p className="mt-2 text-fg">{talk.promise}</p>}
-        <p className="mt-3 text-sm text-muted">{TERMS.duration}</p>
+        <p className="mt-3 text-sm text-muted">{TERMS.presentationLength}</p>
 
         <p className="mt-6 text-sm font-bold text-ink">Takeaways</p>
         <ol className="mt-2 list-decimal space-y-2 pl-5 text-fg">
@@ -76,14 +76,22 @@ export function OneSheet({ input }: { input: PacketInput }) {
                     : "Remote $750 · In person $1,500 plus travel expenses"
               }
             />
-            <Row k="Organization" v={input.org.trim() || "\u2014"} />
-            <Row k="Host" v={input.hostName.trim() || "\u2014"} />
-            <Row k="Date and time" v={input.preferredWeek.trim() || "\u2014"} />
+            <Row k="Organization" v={input.org.trim() || "TBD"} />
+            <Row k="Host" v={input.hostName.trim() || "TBD"} />
+            <Row k="Date and time" v={input.preferredWeek.trim() || "TBD"} />
+            <Row
+              k="Location"
+              v={
+                input.format === "remote"
+                  ? input.city.trim() || "Remote"
+                  : input.city.trim() || "TBD"
+              }
+            />
           </tbody>
         </table>
 
         <p className="mt-6 text-sm text-muted">
-          {TERMS.notCle} {TERMS.notDiagnostic}
+          {TERMS.notCle} {TERMS.notLegal}
         </p>
         <p className="mt-2 text-sm text-muted">{CONTACT_EMAIL}</p>
       </div>

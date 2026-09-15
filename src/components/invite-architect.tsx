@@ -32,7 +32,7 @@ export function BookingIntake() {
 
       <fieldset className="mt-6">
         <legend className="text-sm font-bold text-ink">Format</legend>
-        <div className="mt-3 grid gap-2 grid-cols-2">
+        <div className="mt-3 grid grid-cols-2 gap-2">
           <Choice
             selected={s.format === "remote"}
             onClick={() => s.setFormat("remote")}
@@ -78,17 +78,17 @@ export function BookingIntake() {
           autoComplete="email"
         />
         <Field
-          label="Preferred week"
+          label="Preferred date"
           value={s.preferredWeek}
           onChange={s.setPreferredWeek}
-          placeholder="Week of 12 October"
+          placeholder="Enter your preferred date"
         />
         {s.format === "in-person" ? (
           <Field
             label="City and state"
             value={s.city}
             onChange={s.setCity}
-            placeholder="Phoenix, Arizona"
+            placeholder="Enter your location"
             autoComplete="address-level2"
           />
         ) : null}
