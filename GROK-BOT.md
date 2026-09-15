@@ -101,7 +101,7 @@ GOOGLE_OAUTH_CLIENT_SECRET
 GOOGLE_OAUTH_REFRESH_TOKEN
 ```
 
-Quote email delivery is ON. Carisa authorized Workspace OAuth on 15 September 2026.
+Quote email delivery is ON. Refresh token verified HTTP 200 under CR Grok Build Mail (cr-grok-build-mail) on 15 September 2026. Same client ID as the refresh token.
 
 - From: Carlton Research, LLC <carisa@carltonresearch.com>
 - To: carisa@carltonresearch.com
@@ -116,6 +116,8 @@ Quote email delivery is ON. Carisa authorized Workspace OAuth on 15 September 20
 - Do not use Zoho
 - Do not inject an outreach signature on quote-request mail
 - If the three GOOGLE_OAUTH_* values are missing, stop and tell Carisa. Do not fall back to SMTP.
+- GOOGLE_OAUTH_REFRESH_TOKEN must stay issued to GOOGLE_OAUTH_CLIENT_ID for this project. Do not replace it with a Playground token from another client ID.
+- After deploy, submit one test on https://speaking.carltonresearch.com/quote. Confirm carisa@ receives Travel quote request: and Reply-To is the test host.
 
 Redeploy after env is confirmed.
 
@@ -248,6 +250,7 @@ If payment never clears, do not hold the dates.
 - Do not create a third booking type for CLE.
 - Do not link `/invite` from any public page.
 - Do not link `/quote` from WordPress or any public menu.
+- Quote email is ON via Workspace Gmail OAuth. Keep GOOGLE_OAUTH_* on the host only.
 - Do not enable 2FA. Do not use App Passwords.
 - Do not send as mscarisa@gmail.com.
 - Do not mention Fenlowe Press.
