@@ -96,7 +96,7 @@ function Home() {
                     <li key={item}>{item}</li>
                   ))}
                 </ol>
-                <p className="mt-6 text-sm text-muted">{TERMS.duration}</p>
+                <p className="mt-6 text-sm text-muted">{TERMS.presentationLength}</p>
               </div>
               <aside className="rounded-[var(--radius-md)] border border-border bg-surface p-5">
                 <h3 className="text-base not-italic">Four prongs. A pattern needs all four.</h3>

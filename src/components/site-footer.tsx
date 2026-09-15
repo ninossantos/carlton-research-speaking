@@ -30,8 +30,7 @@ export function SiteFooter() {
           <span>{FIRM}</span>
         </p>
         <p className="max-w-2xl text-sm leading-relaxed text-muted">
-          Lunch & Learn is a proprietary program of {FIRM}. All rights reserved. {TERMS.notCle}{" "}
-          {TERMS.notDiagnostic} {TERMS.notClinical}
+          Lunch & Learn is a proprietary program of {FIRM}. All rights reserved. {TERMS.notCle}
         </p>
         <nav aria-label="Carlton Research" className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
           {practiceNav.map((item) => (
@@ -48,12 +47,6 @@ export function SiteFooter() {
             </a>
           ))}
         </nav>
-        <p className="text-sm text-muted">
-          Forensic practice:{" "}
-          <a className="text-primary underline underline-offset-4 hover:text-ink" href={FIRM_ORIGIN}>
-            carltonresearch.com
-          </a>
-        </p>
       </div>
     </footer>
   );

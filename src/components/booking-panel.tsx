@@ -24,7 +24,7 @@ export function BookingPanel({ input }: { input: PacketInput }) {
       className="rounded-[var(--radius-lg)] border border-border bg-ink px-5 py-8 text-surface sm:px-8"
     >
       <h2 className="font-display text-3xl uppercase tracking-[0.06em] text-surface">Book the Presentation</h2>
-      <p className="mt-3 max-w-2xl text-sm text-gold-soft">{TERMS.duration}</p>
+      <p className="mt-3 max-w-2xl text-sm text-gold-soft">{TERMS.presentationLength}</p>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-2">
         <div className="rounded-[var(--radius-md)] border border-faint/30 bg-fg p-5">
@@ -52,7 +52,7 @@ export function BookingPanel({ input }: { input: PacketInput }) {
             )}
           </Button>
           {input.format === "in-person" ? (
-            <p className="mt-3 text-xs text-faint">Switch the format above to remote to use this door.</p>
+            <p className="mt-3 text-xs text-faint">Switch the format above to remote to use this option.</p>
           ) : null}
         </div>
 
@@ -82,10 +82,10 @@ export function BookingPanel({ input }: { input: PacketInput }) {
                   target={inPerson.external ? "_blank" : undefined}
                   rel="noreferrer"
                 >
-                  Check two-day availability
+                  Check availability
                 </a>
               ) : (
-                <span>Check two-day availability</span>
+                <span>Check availability</span>
               )}
             </Button>
             <Button
@@ -108,7 +108,7 @@ export function BookingPanel({ input }: { input: PacketInput }) {
 
       {!ready ? (
         <p className="mt-6 text-sm text-gold-soft">
-          Finish the details above. The booking doors open when the packet is complete.
+          Finish the details above. The booking options open when the packet is complete.
         </p>
       ) : null}
     </section>
