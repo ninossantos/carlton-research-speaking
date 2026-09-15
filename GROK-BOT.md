@@ -155,6 +155,48 @@ Commit. Deploy. Until those strings are non-empty, the Book the Presentation opt
 - In Cloudflare, add a Configuration Rule: URI Path contains `/invite` then set response header `X-Robots-Tag` = `noindex, nofollow, noarchive`.
 - The only paths to this page: TidyCal remote redirect after payment, and a private email after in-person fees clear.
 
+### Quote page is unlisted and not indexed
+
+`https://speaking.carltonresearch.com/quote` is the in-person travel quote form.
+
+- Do not link `/quote` from WordPress, header, footer, Observatory, Instruments, Tracker, or any sitemap.
+- The only public path to this page is the In Person button Request a travel quote on the speaking page.
+- `public/robots.txt` already has `Disallow: /quote`. Keep that.
+- The quote route already sends noindex robots meta.
+- In Cloudflare, add the same X-Robots-Tag rule for URI Path contains `/quote`.
+
+**Do not turn on email delivery until Carisa confirms Google Workspace OAuth is ready.**
+
+Workspace mail for this product:
+
+- From / Reply-To identity: `carisa@carltonresearch.com`
+- Domain: `carltonresearch.com`
+- Auth: Google OAuth for Gmail send. Same pattern as Smartlead.
+- Do not enable 2FA. Do not use App Passwords.
+- Do not send as `mscarisa@gmail.com`. That inbox is only where she reads forwarded mail.
+- `insights@carltonresearch.com` is an alias for Insights-branded mail only. Lunch & Learn sends as `carisa@`.
+- Do not inject an outreach signature on quote-request mail. Quote mail is a notice to Carisa. Reply-To is the host.
+- Do not use Zoho. Do not store passwords in Excel.
+
+Env stub (no secrets in git):
+
+```
+MAIL_FROM=carisa@carltonresearch.com
+MAIL_DOMAIN=carltonresearch.com
+MAIL_AUTH=google_oauth
+MAIL_ALIAS_INSIGHTS=insights@carltonresearch.com
+QUOTE_TO=carisa@carltonresearch.com
+GOOGLE_OAUTH_CLIENT_ID=
+GOOGLE_OAUTH_CLIENT_SECRET=
+GOOGLE_OAUTH_REFRESH_TOKEN=
+```
+
+Grok Bot fills the three `GOOGLE_OAUTH_*` values on the speaking host after a one-time Gmail send consent as `carisa@carltonresearch.com`. Scope: `https://www.googleapis.com/auth/gmail.send`. OAuth consent screen: Internal. Then redeploy.
+
+Until those three are set, the quote form validates and then tells the visitor the request was not emailed.
+
+In-person dates are not held on TidyCal from the public site. After a quote is accepted and paid, hold two days on the Google Calendar: the presentation day plus the day before for travel. Then email the host `https://speaking.carltonresearch.com/invite?format=in-person`.
+
 ### Verify before handing off
 
 1. Open the remote URL in a private window. Confirm $750, 60 minutes, 14-day notice, the four questions, Stripe checkout.
@@ -171,6 +213,10 @@ Commit. Deploy. Until those strings are non-empty, the Book the Presentation opt
 - Do not mention Fenlowe Press.
 - Do not create a third booking type for CLE.
 - Do not link `/invite` from any public page.
+- Do not link `/quote` from WordPress or any public menu.
+- Do not turn on quote email until Carisa confirms Google Workspace OAuth (gmail.send).
+- Do not enable 2FA. Do not use App Passwords.
+- Do not send as mscarisa@gmail.com.
 
 ## Copy rules already in the app
 
