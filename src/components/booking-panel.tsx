@@ -105,12 +105,6 @@ export function BookingPanel({ input }: { input: PacketInput }) {
       </div>
 
       <p className="mt-6 max-w-3xl text-sm text-gold-soft">{TERMS.geoPrice}</p>
-
-      {!ready ? (
-        <p className="mt-6 text-sm text-gold-soft">
-          Finish the details above. The booking options open when the packet is complete.
-        </p>
-      ) : null}
     </section>
   );
 }
