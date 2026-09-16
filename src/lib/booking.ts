@@ -1,5 +1,5 @@
-/** Remote Book CTA URL (Stripe Payment Link). In-person stays empty; quote form handles travel. */
-export const TIDYCAL_REMOTE = "https://book.stripe.com/3cI4gz1ELaAR63A4Fh00002";
+/** TidyCal event URLs. Remote is live. In-person stays empty: public path is /quote. */
+export const TIDYCAL_REMOTE = "https://tidycal.com/mscarisa/lunch-and-learn";
 export const TIDYCAL_IN_PERSON = "";
 
 export const CONTACT_EMAIL = "carisa@carltonresearch.com";
