@@ -61,7 +61,7 @@ Do these in order. Stop and tell Carisa if a step fails.
 2. Set host env (mail). Confirm OAuth secrets already on the host. Do not print them.
 3. Cloudflare DNS and robots headers
 4. WordPress menu (one item)
-5. TidyCal: one remote booking type only. Paste that URL into the app.
+5. TidyCal: confirm the existing remote type at https://tidycal.com/mscarisa/lunch-and-learn. Turn on the `/invite` redirect. Do not create a second remote type.
 6. Verify remote, quote mail, and unlisted pages
 
 ## 1. Deploy the app
@@ -155,74 +155,40 @@ Calendar: the Google Calendar already attached to this TidyCal account.
 
 Stripe: already connected at Integrations > Payments. Remote charges $750 through Stripe. If Stripe is not connected, stop and tell Carisa. Do not switch processors.
 
-### Create one booking type
+Public remote URL (already wired in `src/lib/booking.ts`):
 
-Booking types > + New booking type. Create **Lunch & Learn Remote** only. Do not reuse a leftover 15-minute or 30-minute type.
+```
+https://tidycal.com/mscarisa/lunch-and-learn
+```
 
-Do **not** create a public in-person booking type. If one already exists from an earlier pass, do not link it from the speaking page. Leave `TIDYCAL_IN_PERSON` as `""`.
+Confirm this type. Do not create a second remote type. Do not point Book remote at a Stripe Payment Link. TidyCal charges through Stripe on this type.
 
-| Setting | Value |
-|---|---|
-| Title | Lunch & Learn Remote |
-| URL slug | lunch-and-learn-remote |
-| Description | 60 minutes: presentation plus questions. Fee $750. Payable upon booking. Cancel 14 days ahead: full refund. Change date and time 14 days ahead: permitted, no change fees. Cancellation or change less than 14 days ahead: no refund or change permitted. Not a CLE. |
-| Calendar | Carisa's connected Google Calendar |
-| Duration | 60 minutes |
-| Location | Online video conference (Zoom or Google Meet, whichever is already connected). If none is connected, use a custom video link and tell Carisa. |
-| Pricing | Per booking. $750.00 USD. Stripe. |
-| How far in advance | 180 days |
-| Minimum booking notice | 14 days |
-| Availability interval | 30 minutes |
-| Padding / gap between bookings | 30 minutes |
-| Booking limits | 1 per day |
-| Allow rescheduling | On. Up to 14 days before the booking. |
-| Allow cancellations | On. Refunds are not automatic. Carisa refunds in Stripe only when the cancel is 14 days or more ahead. |
-| Require approval | Off |
-| Group bookings | Off |
-| Ignore external calendar conflicts | Off |
-| Coupons | Off |
+Do **not** create a public in-person booking type. Leave `TIDYCAL_IN_PERSON` as `""`.
 
-Availability: weekly. Use Carisa's existing default windows. If none exist, Monday through Friday 9:00 a.m. to 4:00 p.m. America/Phoenix. Do not invent weekend hours.
+On that existing TidyCal type, confirm Redirect is **On**. Destination page:
 
-Questions (Advanced > Questions > Enable questions to attendees):
+```
+https://speaking.carltonresearch.com/invite
+```
 
-1. Organization: short text, required
-2. Audience: dropdown, required. Options: Attorneys / Judges / Evaluators / Treatment Providers
-3. Topic: dropdown, required. Options: Distinguish High Conflict from Coercive Control / Mapping a Pattern of Coercive Control / Incident-Model vs Pattern-Model of Coercive Control / Customize Your Presentation
-4. Your topic: short text, not required. If they chose Customize Your Presentation, they insert their topic here. Do not treat the dropdown label as the topic.
-
-TidyCal already collects name and email. Do not duplicate those.
-
-Redirect (Advanced > Notifications > Redirect to custom page after booking): **On.**
-
-Paste this URL exactly:
+Optional prefill (same page):
 
 ```
 https://speaking.carltonresearch.com/invite?name={{contact.name}}&email={{contact.email}}&date={{booking.date}}&time={{booking.time}}&format=remote
 ```
 
-Save. Copy the public URL. It looks like `https://tidycal.com/<username>/lunch-and-learn-remote`.
-
-### Paste the remote URL into the app
-
-Edit `src/lib/booking.ts`:
-
-- `TIDYCAL_REMOTE` = the public remote URL
-- `TIDYCAL_IN_PERSON` = leave `""`
-
-Commit. Deploy. Until `TIDYCAL_REMOTE` is set, Book remote falls back to mailto:carisa@carltonresearch.com.
-
 ## 6. In-person hold (after payment, not on the public site)
 
-TidyCal is not used for in-person on the speaking page. After Carisa confirms travel plus $1,500 has cleared:
-
-1. On the connected Google Calendar, create a 60-minute busy event on the presentation date and time. Title: `Lunch & Learn`. Location: the address from the quote. No public guests required.
-2. Create an **all-day busy** event on the calendar day immediately before. Title: `Travel hold: Lunch & Learn`. Busy. No guests.
-3. Email the host:
+In-person does not use TidyCal. After travel plus $1,500 clears, you email:
 
 ```
 https://speaking.carltonresearch.com/invite?format=in-person
 ```
+
+Then hold two days on Google Calendar:
+
+1. On the connected Google Calendar, create a 60-minute busy event on the presentation date and time. Title: `Lunch & Learn`. Location: the address from the quote. No public guests required.
+2. Create an **all-day busy** event on the calendar day immediately before. Title: `Travel hold: Lunch & Learn`. Busy. No guests.
 
 Those two days are the hold: one day before for travel, plus the day of the presentation.
 
@@ -235,7 +201,7 @@ If payment never clears, do not hold the dates.
 3. Header and footer do not link `/invite` or `/quote` except the In Person button to `/quote`.
 4. Open the TidyCal remote URL in a private window. Confirm $750, 60 minutes, 14-day notice, the four questions, Stripe checkout.
 5. Complete a $1 test only if Carisa authorizes a test charge. Otherwise stop at checkout and confirm the price is $750.
-6. After a real remote booking, confirm the browser lands on `speaking.carltonresearch.com/invite` with name, email, date, time, and format=remote filled.
+6. After a real remote booking, confirm the browser lands on `speaking.carltonresearch.com/invite`.
 7. Submit one test on https://speaking.carltonresearch.com/quote. Confirm carisa@carltonresearch.com receives `Travel quote request:` and Reply-To is the test host. Confirm the screen says the request was sent.
 8. View source on `/invite` and `/quote`: robots meta is noindex, nofollow, noarchive, nosnippet. Cloudflare X-Robots-Tag matches.
 9. Confirm Fenlowe Press does not appear anywhere.
