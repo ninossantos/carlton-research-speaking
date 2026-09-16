@@ -3,15 +3,11 @@ import {
   IN_PERSON_FEE,
   REMOTE_FEE,
   TERMS,
-  mailtoHref,
-  tidyCalOrMailto,
+  TIDYCAL_REMOTE,
 } from "@/lib/booking";
-import { mailtoFor, packetReady, type PacketInput } from "@/lib/packet";
+import type { PacketInput } from "@/lib/packet";
 
 export function BookingPanel({ input }: { input: PacketInput }) {
-  const ready = packetReady(input);
-  const mail = mailtoFor(input);
-  const remote = tidyCalOrMailto("remote", mailtoHref(mail.subject, mail.body));
   const quoteParams = new URLSearchParams();
   if (input.talkId) quoteParams.set("topic", input.talkId);
   if (input.hostName.trim()) quoteParams.set("name", input.hostName.trim());
@@ -38,23 +34,11 @@ export function BookingPanel({ input }: { input: PacketInput }) {
               <li key={line}>{line}</li>
             ))}
           </ul>
-          <Button
-            className="mt-6 w-full"
-            variant="primary"
-            disabled={!ready || input.format === "in-person"}
-            asChild={ready && input.format !== "in-person"}
-          >
-            {ready && input.format !== "in-person" ? (
-              <a href={remote.href} target={remote.external ? "_blank" : undefined} rel="noreferrer">
-                Book remote
-              </a>
-            ) : (
-              <span>Book remote</span>
-            )}
+          <Button className="mt-6 w-full" variant="primary" asChild>
+            <a href={TIDYCAL_REMOTE} target="_blank" rel="noreferrer">
+              Book remote
+            </a>
           </Button>
-          {input.format === "in-person" ? (
-            <p className="mt-3 text-xs text-faint">Switch the format above to remote to use this option.</p>
-          ) : null}
         </div>
 
         <div className="rounded-[var(--radius-md)] border border-faint/30 bg-fg p-5">
