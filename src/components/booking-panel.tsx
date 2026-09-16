@@ -20,7 +20,7 @@ export function BookingPanel({ input }: { input: PacketInput }) {
       id="book"
       className="rounded-[var(--radius-lg)] border border-border bg-ink px-5 py-8 text-surface sm:px-8"
     >
-      <h2 className="font-display text-3xl uppercase tracking-[0.06em] text-surface">Book the Presentation</h2>
+      <h2 className="font-display text-3xl uppercase tracking-[0.06em] text-surface">Book a Coercive Control Presentation</h2>
       <p className="mt-3 max-w-2xl text-sm text-gold-soft">{TERMS.presentationLength}</p>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-2">
