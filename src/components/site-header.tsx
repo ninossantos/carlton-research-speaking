@@ -2,7 +2,6 @@ import { practiceNav } from "@/lib/nav";
 
 export function SiteHeader({
   bookHref = "#book",
-  current = true,
 }: {
   bookHref?: string;
   current?: boolean;
@@ -11,26 +10,15 @@ export function SiteHeader({
     <header className="border-b border-border bg-bg">
       <nav aria-label="Carlton Research" className="border-b border-border">
         <div className="mx-auto flex max-w-6xl items-stretch gap-5 overflow-x-auto px-5 sm:px-8">
-          {practiceNav.map((item) =>
-            current && "current" in item && item.current ? (
-              <a
-                key={item.label}
-                href={item.href}
-                aria-current="page"
-                className="shrink-0 border-b-2 border-rule py-3 text-sm text-ink"
-              >
-                {item.label}
-              </a>
-            ) : (
-              <a
-                key={item.label}
-                href={item.href}
-                className="shrink-0 py-3 text-sm text-muted hover:text-ink"
-              >
-                {item.label}
-              </a>
-            ),
-          )}
+          {practiceNav.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className="shrink-0 py-3 text-sm text-muted hover:text-ink"
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
       </nav>
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
