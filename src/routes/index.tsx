@@ -69,7 +69,7 @@ function Home() {
             Sixty minutes: presentation plus questions.
           </p>
           <p className="mx-auto mt-4 max-w-xl text-sm text-muted">
-            For attorneys, judges, evaluators, and treatment providers.
+            For attorneys, judges, evaluators, and other providers.
           </p>
           <p className="mx-auto mt-2 max-w-xl text-sm text-muted">Remote or in person. Not a CLE.</p>
         </section>

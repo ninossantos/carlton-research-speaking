@@ -66,7 +66,7 @@ export const ROLES: { id: RoleId; label: string; lens: string }[] = [
   },
   {
     id: "treatment-provider",
-    label: "Treatment Providers",
+    label: "Other Providers",
     lens: "The treatment file must track a course of conduct, not a single incident.",
   },
 ];
