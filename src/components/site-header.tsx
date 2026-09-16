@@ -1,12 +1,4 @@
-import { FIRM_ORIGIN } from "@/lib/booking";
-
-const practiceNav = [
-  { href: `${FIRM_ORIGIN}/`, label: "Home" },
-  { href: "/", label: "Lunch & Learn", current: true },
-  { href: `${FIRM_ORIGIN}/services/`, label: "Services" },
-  { href: `${FIRM_ORIGIN}/about/`, label: "About" },
-  { href: `${FIRM_ORIGIN}/contact/`, label: "Contact" },
-] as const;
+import { practiceNav } from "@/lib/nav";
 
 export function SiteHeader({
   bookHref = "#book",
