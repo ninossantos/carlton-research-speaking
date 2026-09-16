@@ -11,7 +11,7 @@ export function BookingIntake() {
       id="booking-details"
       className="rounded-[var(--radius-lg)] border border-border bg-surface p-5 shadow-[var(--shadow-border)] sm:p-8"
     >
-      <h2 className="text-2xl">Prepare the Presentation</h2>
+      <h2 className="text-2xl">Prepare Your Coercive Control Presentation</h2>
       <p className="mt-2 max-w-2xl text-muted">
         Select your audience and the format. Book the presentation next.
       </p>
