@@ -168,8 +168,8 @@ export const TALKS: Talk[] = [
   },
   {
     id: "customize",
-    title: "Customize Your Presentation",
-    short: "Customize Your Presentation",
+    title: "Customize Your Coercive Control Presentation",
+    short: "Customize Your Coercive Control Presentation",
     promise: "Contact us with questions you would like answered at your Lunch & Learn.",
     takeaways: [
       "Name the questions this presentation must answer.",
