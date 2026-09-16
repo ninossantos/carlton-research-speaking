@@ -60,7 +60,7 @@ function Home() {
       <SiteHeader />
       <main id="main" className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-5 py-12 sm:px-8 sm:py-16">
         <section className="text-center">
-          <p className="text-xs font-bold uppercase tracking-widest text-gold">Schedule a Presentation</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-gold">Schedule a Coercive Control Presentation</p>
           <h1 className="mt-4 font-display text-4xl uppercase tracking-wider text-ink sm:text-5xl md:text-6xl">
             Lunch & Learn
           </h1>
