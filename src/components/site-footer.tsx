@@ -1,18 +1,5 @@
-import { FIRM, FIRM_ORIGIN, TERMS } from "@/lib/booking";
-
-const practiceNav = [
-  { href: `${FIRM_ORIGIN}/`, label: "Home" },
-  { href: "/", label: "Lunch & Learn" },
-  { href: `${FIRM_ORIGIN}/services/`, label: "Services" },
-  { href: `${FIRM_ORIGIN}/about/`, label: "About" },
-  { href: `${FIRM_ORIGIN}/contact/`, label: "Contact" },
-];
-
-const secondaryNav = [
-  { href: `${FIRM_ORIGIN}/privacy-policy/`, label: "Privacy Policy" },
-  { href: `${FIRM_ORIGIN}/terms-of-service/`, label: "Terms of Service" },
-  { href: `${FIRM_ORIGIN}/copyright-notice/`, label: "Copyright Notice" },
-];
+import { FIRM, TERMS } from "@/lib/booking";
+import { copyrightLine, legalNav, practiceNav } from "@/lib/nav";
 
 export function SiteFooter() {
   return (
@@ -40,8 +27,9 @@ export function SiteFooter() {
           ))}
         </nav>
         <div role="separator" aria-hidden="true" className="h-px w-full bg-gold" />
-        <nav aria-label="Legal" className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
-          {secondaryNav.map((item) => (
+        <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+          <span className="text-muted">{copyrightLine()}</span>
+          {legalNav.map((item) => (
             <a key={item.href} href={item.href} className="text-muted hover:text-ink hover:underline">
               {item.label}
             </a>
