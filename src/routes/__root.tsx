@@ -43,6 +43,22 @@ export const Route = createRootRoute({
           <Outlet />
         </AuthProvider>
         <Scripts />
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `/* <![CDATA[ */
+var SlimStatParams = {
+ transport: "ajax",
+ ajaxurl: "https://carltonresearch.com/wp-admin/admin-ajax.php",
+ ajaxurl_ajax: "https://carltonresearch.com/wp-admin/admin-ajax.php"
+};
+/* ]]> */`,
+          }}
+        />
+        <script
+          type="text/javascript"
+          src="https://cdn.jsdelivr.net/wp/wp-slimstat/tags/5.5.0/wp-slimstat.min.js"
+        />
       </body>
     </html>
   ),
