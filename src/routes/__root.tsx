@@ -18,6 +18,7 @@ const SCHEMA_GRAPH = {
       "image": "https://carltonresearch.com/wp-content/uploads/2026/09/seed-of-life-512.png",
       "description": "Carlton Research, LLC provides coercive control forensic services for attorneys, courts, and evaluators. Founded in October 2020 in Laguna Beach, California. CEO and founder Carisa Carlton.",
       "email": "carisa@carltonresearch.com",
+      "telephone": "+1-323-999-1376",
       "foundingDate": "2020-10",
       "address": {
         "@type": "PostalAddress",
