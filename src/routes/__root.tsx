@@ -80,7 +80,7 @@ const SCHEMA_GRAPH = {
         "CEO",
         "Founder"
       ],
-      "description": "Carisa Carlton is an anthropologist and sociologist with 10 years of coercive control research, including courtroom research. She is the author of the codebook for identifying coercive control in longitudinal artifacts. CEO and founder of Carlton Research, LLC.",
+      "description": "Carisa Carlton is an anthropologist and sociologist with 10 years of coercive control research, including courtroom research. She is the author of The Codebook for Identifying Coercive Control in Longitudinal Artifacts. CEO and founder of Carlton Research, LLC.",
       "worksFor": {
         "@id": "https://carltonresearch.com/#organization"
       },
