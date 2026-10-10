@@ -1,12 +1,9 @@
 import { FIRM, TERMS } from "@/lib/booking";
 import { copyrightLine, legalNav, practiceNav } from "@/lib/nav";
 
-const TAGLINE = "Carlton Research Set the Gold Standard for Evaluating Coercive Control";
-
 export function SiteFooter() {
   return (
     <footer className="mt-auto bg-bg">
-      <p className="gold-standard-band" aria-label={TAGLINE}><span className="gs-kicker">Carlton Research Set</span> <span className="gs-headline">the Gold Standard</span> <span className="gs-sub">for Evaluating Coercive Control</span></p>
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 sm:px-8">
         <p className="flex items-center gap-3 font-display text-lg text-ink">
           <img
