@@ -80,7 +80,7 @@ export const TALKS: Talk[] = [
       "Conflict is episodic and bilateral. Coercive control is directional and cumulative. The presentation teaches how to distinguish them.",
     takeaways: [
       "Conflict is not evidence of coercive control.",
-      "How to read elements of coercion in communication records.",
+      "An analysis of elements of coercion in communication records.",
       "A pattern requires repetition, relatedness, continuity, and asymmetry. Fail one prong, and the pattern fails.",
     ],
     artifacts: ["Raised voices", "Mutual filings", "One-sided schedule", "Locked accounts"],
