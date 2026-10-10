@@ -145,6 +145,14 @@ export const Route = createRootRoute({
     })(window, document, "clarity", "script", "vo79yxbwn3");`,
       },
       {
+        src: "https://www.googletagmanager.com/gtag/js?id=G-27NW00E2L1",
+        async: true,
+      },
+      {
+        children:
+          "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-27NW00E2L1',{cookie_domain:'auto'});",
+      },
+      {
         type: "application/ld+json",
         children: JSON.stringify(SCHEMA_GRAPH),
       },
