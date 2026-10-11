@@ -185,6 +185,12 @@ var SlimStatParams = {
           type="text/javascript"
           src="https://cdn.jsdelivr.net/wp/wp-slimstat/tags/5.5.0/wp-slimstat.min.js"
         />
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `document.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a[href]'):null;if(!a||typeof window.gtag!=='function')return;var h=a.getAttribute('href')||'';if(h.indexOf('tidycal.com')!==-1){gtag('event','speaking_booking_click',{link_url:h,page_location:location.href});}else if(h.indexOf('mailto:')===0){gtag('event','speaking_email_click',{link_url:h});}else if(h.indexOf('carltonresearch.com/contact')!==-1){gtag('event','speaking_inquiry_click',{link_url:h});}},true);`,
+          }}
+        />
       </body>
     </html>
   ),
