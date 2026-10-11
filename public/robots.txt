@@ -10,3 +10,5 @@ Disallow: /invite
 Disallow: /invite/
 Disallow: /quote
 Disallow: /quote/
+
+Sitemap: https://speaking.carltonresearch.com/sitemap.xml
