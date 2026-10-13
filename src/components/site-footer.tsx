@@ -7,7 +7,7 @@ export function SiteFooter({ note }: { note?: string } = {}) {
       <div className="cr-footer-top">
         <img src="/favicon.png" width={40} height={40} alt="" decoding="async" className="h-10 w-10 shrink-0 object-contain" />
         <nav aria-label="Carlton Research footer" className="cr-footer-nav">
-          {practiceNav.map((item) => (
+          {practiceNav.map((item) => item.label === "Evidence Vault" ? { href: "https://speaking.carltonresearch.com/", label: "Lunch & Learn" } : item).map((item) => (
             <a key={item.href} href={item.href} aria-current={item.label === "Lunch & Learn" ? "page" : undefined}>
               {item.label}
             </a>

@@ -16,26 +16,23 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-bg text-fg">
-      <SiteHeader tagline="Coercive Control CLE Course" />
-      <main id="main" className="cr-main">
-        <section className="cr-hero">
+      <SiteHeader tagline="Coercive Control CLE Course" bookLabel="Book the Coercive Control CLE course" />
+      <main id="main" className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-5 py-12 sm:px-8 sm:py-16">
+        <section className="text-center">
           <h1
-            className="font-display text-ink"
-            style={{ fontSize: "clamp(2.25rem, 4vw, 3rem)", fontWeight: 600, lineHeight: 1.15, letterSpacing: "-0.02em", marginBottom: "0.75rem" }}
+            className="mt-4 font-display text-ink"
+            style={{ fontSize: "clamp(2.25rem, 4vw, 3rem)", fontWeight: 600, lineHeight: 1.15, letterSpacing: "-0.02em" }}
           >
             {CLE.title}
           </h1>
           <p
-            className="font-sans"
-            style={{ fontWeight: 400, fontSize: "1.15rem", lineHeight: 1.6, color: "#4a5567", margin: 0 }}
+            className="mx-auto mt-5 max-w-2xl font-sans"
+            style={{ fontWeight: 400, fontSize: "1.15rem", color: "#4a5567" }}
           >
             {CLE.subtitle}
           </p>
-          <p className="cr-body" style={{ margin: "0 0 1.1rem" }}>{CLE.format}</p>
-          <p className="cr-body">{CLE.intro}</p>
-          <div style={{ marginTop: 20, marginBottom: 32 }}>
-            <a href="#book" className="cr-btn">Book the Coercive Control CLE course</a>
-          </div>
+          <p className="mx-auto mt-2 max-w-2xl text-lg text-fg">{CLE.format}</p>
+          <p className="mx-auto mt-4 max-w-3xl text-sm text-muted">{CLE.intro}</p>
         </section>
 
         {CLE_VIDEO_YOUTUBE_ID || CLE_VIDEO_PLACEHOLDER ? (
@@ -90,8 +87,7 @@ function Home() {
         <section
           id="booking-details"
           className="cr-panel"
-          style={{ marginTop: "2.25rem" }}
-        >
+                  >
           <h2 className="cr-h2">{CLE.receivesHeading}</h2>
           <p className="cr-body" style={{ color: "#4a5567" }}>{CLE.receivesSubline}</p>
           <ul className="cr-services-list mt-4 grid gap-2 sm:grid-flow-col sm:grid-cols-2 sm:grid-rows-4">
@@ -108,7 +104,7 @@ function Home() {
         <section
           id="book"
           className="cr-card cr-zone-card"
-          style={{ marginTop: "2.25rem", color: "#1e2d40" }}
+          style={{ color: "#1e2d40" }}
         >
           <h2 className="cr-h2">{CLE.bookHeading}</h2>
           <p className="cr-body" style={{ color: "#4a5567" }}>{CLE.bookIntro}</p>
@@ -130,7 +126,7 @@ function Home() {
           <p className="mt-1 max-w-3xl" style={{ color: "#4a5567" }}>{CLE.coming}</p>
         </section>
 
-        <section aria-labelledby="terms-heading" className="cr-zone">
+        <section aria-labelledby="terms-heading" style={{ paddingTop: "1.75rem", borderTop: "1px solid rgba(132, 145, 154, 0.22)" }}>
           <h2 id="terms-heading" className="cr-h2">
             Terms
           </h2>
