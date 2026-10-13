@@ -139,7 +139,7 @@ function Home() {
           </div>
         </section>
       </main>
-      <SiteFooter note="Mapping a Pattern of Coercive Control is a proprietary program of Carlton Research, LLC. All rights reserved." />
+      <SiteFooter note="Mapping a Pattern of Coercive Control is a proprietary CLE program of Carlton Research, LLC. All rights reserved." />
     </div>
   );
 }
