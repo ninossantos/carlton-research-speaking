@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-bg text-fg">
-      <SiteHeader tagline="CLE Course" bookLabel="Book the CLE course" />
+      <SiteHeader tagline="Coercive Control CLE Course" bookLabel="Book the Coercive Control CLE course" />
       <main id="main" className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-5 py-12 sm:px-8 sm:py-16">
         <section className="text-center">
           <h1 className="mt-4 font-display text-4xl uppercase tracking-wider text-ink sm:text-5xl md:text-6xl">
