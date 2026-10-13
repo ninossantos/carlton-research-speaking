@@ -65,3 +65,83 @@ export function tidyCalOrMailto(kind: "remote" | "in-person", mailto: string) {
 export function mailtoHref(subject: string, body: string) {
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
+
+/** CLE course offering (speaking page). Copy is verbatim from the approved CLE rewrite. */
+export const TIDYCAL_CLE_GROUP_5 =
+  "https://tidycal.com/mscarisa/mapping-a-pattern-of-coercive-control-private-firm-session-for-a-group-of-5";
+export const TIDYCAL_CLE_GROUP_10 =
+  "https://tidycal.com/mscarisa/mapping-a-pattern-of-coercive-control-private-firm-session-for-a-group-of-10";
+
+export const CLE = {
+  pageTitle: "Mapping a Pattern of Coercive Control | CLE Course | Carlton Research, LLC",
+  metaDescription:
+    "Mapping a Pattern of Coercive Control, a 120 minute live CLE course on Google Meet for one firm. 2.0 CLE hours. Presented by Carisa Carlton, M.A., Carlton Research, LLC.",
+  title: "Mapping a Pattern of Coercive Control",
+  presenter: "Carisa Carlton, M.A., Carlton Research, LLC",
+  format: "120 minutes live on Google Meet. 2.0 CLE hours. Private firm session.",
+  intro:
+    "Attorneys learn to identify and document a pattern of coercive control across longitudinal artifacts such as messages, emails, and other time stamped communication records using peer reviewed categories of coercion and a mathematical model of pattern analysis, and then how to present that pattern analysis as expert evidence. Because the session is private, a firm team learns the method together and brings its own questions to a dedicated Q&A period.",
+  agendaHeading: "Timed Agenda",
+  agendaSubline: "120 minutes: Mapping the Pattern, Expert Evidence, and Questions and Answers.",
+  agenda: [
+    {
+      minutes: "60 minutes",
+      title: "Mapping the Pattern",
+      line: "Applying the Codebook for Identifying Coercive Control in Longitudinal Artifacts to records to document a pattern of coercive control",
+    },
+    {
+      minutes: "30 minutes",
+      title: "Expert Evidence",
+      line: "Evaluating and presenting coercive control analysis as expert evidence under Federal Rule 702 and Daubert",
+    },
+    {
+      minutes: "30 minutes",
+      title: "Questions and Answers",
+      line: "Attorney questions on method, artifacts, and expert evidence",
+    },
+  ],
+  sessionTopicsHeading: "Session Topics",
+  sessionTopics: [
+    "How to distinguish coercive control from high conflict",
+    "How a pattern differs from anomalies and clusters",
+    "Longitudinal artifacts as evidence: texts, emails, parenting apps, litigation, child protective services and other methods of coercive control",
+    "Coding artifacts with the Codebook to document the controller's conduct directed at the target",
+    "Organizing coded findings into a chronological, reviewable record",
+    "Presenting coercive control analysis clearly and with appropriate limits",
+  ],
+  receivesHeading: "What Your Firm Receives",
+  receivesSubline: "Every private firm session includes the following.",
+  receives: [
+    "Timed agenda",
+    "Written course materials and handout",
+    "Certificate of attendance for each attorney, listing attorney name, bar number, course title, date, hours, and live format",
+    "Attendance tracking",
+    "Evaluation form",
+    "Google Meet remote attendance link",
+    "Dedicated Q&A time",
+  ],
+  bookHeading: "Book Your Mapping a Pattern of Coercive Control CLE Course",
+  bookIntro: "Book a private session for a group of 5 or a group of 10 attorneys.",
+  groups: [
+    { label: "Group of 5", price: "$700, paid at booking", cta: "Book for 5 Attorneys", href: TIDYCAL_CLE_GROUP_5 },
+    { label: "Group of 10", price: "$1,400, paid at booking", cta: "Book for 10 Attorneys", href: TIDYCAL_CLE_GROUP_10 },
+  ],
+  availability: "Currently available as a CLE in Arizona, Connecticut, and New Hampshire.",
+  coming: "Coming December 2026: Missouri, Alaska, Hawaii, and New Jersey",
+  terms: [
+    "Course length: 120 minutes",
+    "Credit: 2.0 CLE hours",
+    "Fee: $700 per group of 5; $1,400 per group of 10",
+    "Payment: payable upon booking",
+    "Cancel 14 days or more ahead: full refund.",
+    "Change date and time 14 days or more ahead: permitted, no change fees.",
+    "Cancellation or change less than 14 days ahead: no refund or change permitted.",
+  ],
+  azDisclaimer:
+    "The State Bar of Arizona does not approve or accredit CLE activities for the Mandatory Continuing Legal Education requirement. This activity may qualify for up to 2.0 hours toward your annual CLE requirement for the State Bar of Arizona, including 0 hour(s) of professional responsibility.",
+} as const;
+
+/** YouTube video ID for the CLE course video. Empty = video section hidden. */
+export const CLE_VIDEO_YOUTUBE_ID: string = "";
+/** Preview-only: show a gray "Course video" placeholder when no ID is set. Keep false in commits. */
+export const CLE_VIDEO_PLACEHOLDER: boolean = false;

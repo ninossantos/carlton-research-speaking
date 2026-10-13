@@ -1,7 +1,7 @@
 import { FIRM, TERMS } from "@/lib/booking";
 import { copyrightLine, legalNav, practiceNav } from "@/lib/nav";
 
-export function SiteFooter() {
+export function SiteFooter({ note }: { note?: string } = {}) {
   return (
     <footer className="mt-auto bg-bg">
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 sm:px-8">
@@ -17,7 +17,7 @@ export function SiteFooter() {
           <span>{FIRM}</span>
         </p>
         <p className="max-w-2xl text-sm leading-relaxed text-muted">
-          Lunch & Learn is a proprietary program of {FIRM}. All rights reserved. {TERMS.notCle}
+          {note ?? <>Lunch & Learn is a proprietary program of {FIRM}. All rights reserved. {TERMS.notCle}</>}
         </p>
         <nav aria-label="Carlton Research" className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
           {practiceNav.map((item) => (

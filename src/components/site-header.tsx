@@ -2,8 +2,12 @@ import { practiceNav } from "@/lib/nav";
 
 export function SiteHeader({
   bookHref = "#book",
+  tagline = "Lunch & Learn",
+  bookLabel = "Book the presentation",
 }: {
   bookHref?: string;
+  tagline?: string;
+  bookLabel?: string;
   current?: boolean;
 }) {
   return (
@@ -34,7 +38,7 @@ export function SiteHeader({
           <span className="flex min-w-0 flex-col leading-tight">
             <span className="font-display text-lg text-ink">Carlton Research, LLC</span>
             <span className="mt-0.5 text-xs font-bold uppercase tracking-widest text-primary">
-              Lunch & Learn
+              {tagline}
             </span>
           </span>
         </a>
@@ -42,7 +46,7 @@ export function SiteHeader({
           href={bookHref}
           className="shrink-0 text-sm font-semibold text-primary underline underline-offset-4 hover:text-ink"
         >
-          Book the presentation
+          {bookLabel}
         </a>
       </div>
     </header>

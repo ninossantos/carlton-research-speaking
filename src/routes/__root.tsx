@@ -99,8 +99,8 @@ const SCHEMA_GRAPH = {
       "@type": "WebSite",
       "@id": "https://speaking.carltonresearch.com/#website",
       "url": "https://speaking.carltonresearch.com/",
-      "name": "Lunch & Learn | Carlton Research, LLC",
-      "description": "Lunch & Learn with Carisa Carlton, M.A. Coercive control speaking for attorneys, courts, and evaluators. Sixty minutes. Four topics. Remote or in person.",
+      "name": "Mapping a Pattern of Coercive Control | CLE Course | Carlton Research, LLC",
+      "description": "Mapping a Pattern of Coercive Control, a 120 minute live CLE course on Google Meet for one firm. 2.0 CLE hours. Presented by Carisa Carlton, M.A., Carlton Research, LLC.",
       "publisher": {
         "@id": "https://carltonresearch.com/#organization"
       },
