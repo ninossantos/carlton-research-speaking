@@ -92,7 +92,7 @@ function Home() {
         >
           <h2 className="text-2xl">{CLE.receivesHeading}</h2>
           <p className="mt-2 max-w-2xl text-muted">{CLE.receivesSubline}</p>
-          <ul className="mt-6 grid gap-2 sm:grid-cols-2">
+          <ul className="mt-6 grid gap-2 sm:grid-flow-col sm:grid-cols-2 sm:grid-rows-4">
             {CLE.receives.map((item) => (
               <li
                 key={item}
