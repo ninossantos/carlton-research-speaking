@@ -25,8 +25,8 @@ export function SiteHeader({
           ))}
         </div>
       </nav>
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
-        <a href="/" className="flex min-w-0 items-center gap-3 no-underline">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-5 py-4 sm:px-8">
+        <a href="/" className="flex shrink-0 items-center gap-3 no-underline">
           <img
             src="/favicon.png"
             width={40}
