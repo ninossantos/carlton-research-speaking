@@ -112,7 +112,7 @@ export const CLE = {
     "Challenging Coercive Control Expert Witnesses and their Opinions",
   ],
   receivesHeading: "What Your Firm Receives",
-  receivesSubline: "Every private firm session includes the following.",
+  receivesSubline: "Every session includes",
   receives: [
     "Structured Agenda",
     "Written Course Material & Handout",
