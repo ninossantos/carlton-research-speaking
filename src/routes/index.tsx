@@ -77,8 +77,7 @@ function Home() {
           </div>
           <div className="mt-10">
             <h2 className="text-2xl">{CLE.sessionTopicsHeading}</h2>
-            <p className="mt-4 text-fg">{CLE.sessionTopicsLead}</p>
-            <ol className="mt-3 list-decimal space-y-3 pl-5 text-fg">
+            <ol className="mt-4 list-decimal space-y-3 pl-5 text-fg">
               {CLE.sessionTopics.map((item) => (
                 <li key={item}>{item}</li>
               ))}

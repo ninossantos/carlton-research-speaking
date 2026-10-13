@@ -102,8 +102,8 @@ export const CLE = {
     },
   ],
   sessionTopicsHeading: "Session Topics",
-  sessionTopicsLead: "Define Coercive Control Cleanly",
   sessionTopics: [
+    "Define Coercive Control Cleanly",
     "Distinguish coercive control from high conflict: what tactics count",
     "Define Pattern",
     "Coding artifacts with the Codebook for Identifying Coercive Control in Longitudinal Artifacts",
