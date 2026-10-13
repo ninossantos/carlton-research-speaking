@@ -20,10 +20,18 @@ function Home() {
       <SiteHeader tagline="Coercive Control CLE Course" bookLabel="Book the Coercive Control CLE course" />
       <main id="main" className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-5 py-12 sm:px-8 sm:py-16">
         <section className="text-center">
-          <h1 className="mt-4 font-display text-4xl uppercase tracking-wider text-ink sm:text-5xl md:text-6xl">
+          <h1
+            className="mt-4 font-display text-ink"
+            style={{ fontSize: "clamp(2.25rem, 4vw, 3rem)", fontWeight: 600, lineHeight: 1.15, letterSpacing: "-0.02em" }}
+          >
             {CLE.title}
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-fg">{CLE.presenter}</p>
+          <p
+            className="mx-auto mt-5 max-w-2xl font-sans"
+            style={{ fontWeight: 400, fontSize: "1.15rem", color: "#4a5567" }}
+          >
+            {CLE.subtitle}
+          </p>
           <p className="mx-auto mt-2 max-w-2xl text-lg text-fg">{CLE.format}</p>
           <p className="mx-auto mt-4 max-w-3xl text-sm text-muted">{CLE.intro}</p>
         </section>
@@ -69,7 +77,8 @@ function Home() {
           </div>
           <div className="mt-10">
             <h2 className="text-2xl">{CLE.sessionTopicsHeading}</h2>
-            <ol className="mt-4 list-decimal space-y-3 pl-5 text-fg">
+            <p className="mt-4 text-fg">{CLE.sessionTopicsLead}</p>
+            <ol className="mt-3 list-decimal space-y-3 pl-5 text-fg">
               {CLE.sessionTopics.map((item) => (
                 <li key={item}>{item}</li>
               ))}
