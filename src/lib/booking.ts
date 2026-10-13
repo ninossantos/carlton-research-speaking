@@ -125,8 +125,8 @@ export const CLE = {
   bookHeading: "Schedule Mapping a Pattern of Coercive Control CLE Course",
   bookIntro: "Book a private session for a group of 5 or a group of 10 attorneys.",
   groups: [
-    { label: "Group of 5", price: "$700, paid at booking", cta: "Book for 5 Attorneys", href: TIDYCAL_CLE_GROUP_5 },
-    { label: "Group of 10", price: "$1,400, paid at booking", cta: "Book for 10 Attorneys", href: TIDYCAL_CLE_GROUP_10 },
+    { label: "Group of 5", price: "$700", sub: "Group Price for up to 5 Attorneys", cta: "Book for 5 Attorneys", href: TIDYCAL_CLE_GROUP_5 },
+    { label: "Group of 10", price: "$1,400", sub: "Group Price for up to 10 Attorneys", cta: "Book for 10 Attorneys", href: TIDYCAL_CLE_GROUP_10 },
   ],
   availability: "Currently available as a CLE in Arizona, Connecticut, and New Hampshire.",
   coming: "Coming December 2026: Missouri, Alaska, Hawaii, and New Jersey",

@@ -114,6 +114,7 @@ function Home() {
               <div key={g.label} className="rounded-[var(--radius-md)] border border-faint/30 bg-fg p-5">
                 <p className="text-xs font-bold uppercase tracking-[0.08em] text-gold">{g.label}</p>
                 <p className="mt-2 font-display text-3xl text-surface">{g.price}</p>
+                <p className="mt-1 text-sm text-surface/80">{g.sub}</p>
                 <Button className="mt-6 w-full" variant="primary" asChild>
                   <a href={g.href} target="_blank" rel="noreferrer">
                     {g.cta}
