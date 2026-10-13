@@ -122,7 +122,7 @@ export const CLE = {
     "Certificate of Attendance (listing attorney name, bar number, course title, date)",
     "2.0 CLE credits (or more in some jurisdictions)",
   ],
-  bookHeading: "Book Your Mapping a Pattern of Coercive Control CLE Course",
+  bookHeading: "Schedule Mapping a Pattern of Coercive Control CLE Course",
   bookIntro: "Book a private session for a group of 5 or a group of 10 attorneys.",
   groups: [
     { label: "Group of 5", price: "$700, paid at booking", cta: "Book for 5 Attorneys", href: TIDYCAL_CLE_GROUP_5 },
