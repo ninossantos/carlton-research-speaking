@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { Button } from "@/components/ui/button";
 import { CLE, CLE_VIDEO_PLACEHOLDER, CLE_VIDEO_YOUTUBE_ID } from "@/lib/booking";
 
 export const Route = createFileRoute("/")({
@@ -17,23 +16,26 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-bg text-fg">
-      <SiteHeader tagline="Coercive Control CLE Course" bookLabel="Book the Coercive Control CLE course" />
-      <main id="main" className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-5 py-12 sm:px-8 sm:py-16">
-        <section className="text-center">
+      <SiteHeader tagline="Coercive Control CLE Course" />
+      <main id="main" className="cr-main">
+        <section className="cr-hero">
           <h1
-            className="mt-4 font-display text-ink"
-            style={{ fontSize: "clamp(2.25rem, 4vw, 3rem)", fontWeight: 600, lineHeight: 1.15, letterSpacing: "-0.02em" }}
+            className="font-display text-ink"
+            style={{ fontSize: "clamp(2.25rem, 4vw, 3rem)", fontWeight: 600, lineHeight: 1.15, letterSpacing: "-0.02em", marginBottom: "0.75rem" }}
           >
             {CLE.title}
           </h1>
           <p
-            className="mx-auto mt-5 max-w-2xl font-sans"
-            style={{ fontWeight: 400, fontSize: "1.15rem", color: "#4a5567" }}
+            className="font-sans"
+            style={{ fontWeight: 400, fontSize: "1.15rem", lineHeight: 1.6, color: "#4a5567", margin: 0 }}
           >
             {CLE.subtitle}
           </p>
-          <p className="mx-auto mt-2 max-w-2xl text-lg text-fg">{CLE.format}</p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm text-muted">{CLE.intro}</p>
+          <p className="cr-body" style={{ margin: "0 0 1.1rem" }}>{CLE.format}</p>
+          <p className="cr-body">{CLE.intro}</p>
+          <div style={{ marginTop: 20, marginBottom: 32 }}>
+            <a href="#book" className="cr-btn">Book the Coercive Control CLE course</a>
+          </div>
         </section>
 
         {CLE_VIDEO_YOUTUBE_ID || CLE_VIDEO_PLACEHOLDER ? (
@@ -59,25 +61,25 @@ function Home() {
         ) : null}
 
         <section aria-labelledby="topics-heading">
-          <h2 id="topics-heading" className="text-2xl">
+          <h2 id="topics-heading" className="cr-h2" style={{ marginTop: 0 }}>
             {CLE.agendaHeading}
           </h2>
-          <p className="mt-2 max-w-2xl text-muted">{CLE.agendaSubline}</p>
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+          <p className="cr-body" style={{ color: "#4a5567" }}>{CLE.agendaSubline}</p>
+          <div className="cr-grid3 mt-6">
             {CLE.agenda.map((block) => (
               <div
                 key={block.title}
-                className="flex min-h-44 flex-col rounded-[var(--radius-md)] border border-border bg-surface-2 p-5 text-left"
+                className="cr-card flex flex-col text-left"
               >
-                <span className="text-xs font-bold uppercase tracking-[0.08em] text-gold">{block.minutes}</span>
-                <span className="mt-3 font-display text-xl leading-snug text-ink">{block.title}</span>
-                <span className="mt-3 text-sm text-muted">{block.line}</span>
+                <span className="cr-kicker">{block.minutes}</span>
+                <span className="cr-card-title mt-2">{block.title}</span>
+                <span className="cr-card-text mt-2">{block.line}</span>
               </div>
             ))}
           </div>
-          <div className="mt-10">
-            <h2 className="text-2xl">{CLE.sessionTopicsHeading}</h2>
-            <ol className="mt-4 list-decimal space-y-3 pl-5 text-fg">
+          <div className="cr-zone">
+            <h2 className="cr-h2">{CLE.sessionTopicsHeading}</h2>
+            <ol className="cr-body list-decimal space-y-3 pl-5">
               {CLE.sessionTopics.map((item) => (
                 <li key={item}>{item}</li>
               ))}
@@ -87,15 +89,15 @@ function Home() {
 
         <section
           id="booking-details"
-          className="rounded-[var(--radius-lg)] border border-border bg-surface p-5 shadow-[var(--shadow-border)] sm:p-8"
+          className="cr-panel"
+          style={{ marginTop: "2.25rem" }}
         >
-          <h2 className="text-2xl">{CLE.receivesHeading}</h2>
-          <p className="mt-2 max-w-2xl text-muted">{CLE.receivesSubline}</p>
-          <ul className="mt-6 grid gap-2 sm:grid-flow-col sm:grid-cols-2 sm:grid-rows-4">
+          <h2 className="cr-h2">{CLE.receivesHeading}</h2>
+          <p className="cr-body" style={{ color: "#4a5567" }}>{CLE.receivesSubline}</p>
+          <ul className="cr-services-list mt-4 grid gap-2 sm:grid-flow-col sm:grid-cols-2 sm:grid-rows-4">
             {CLE.receives.map((item) => (
               <li
                 key={item}
-                className="rounded-[var(--radius-sm)] border border-border bg-surface-2 px-3 py-2 text-sm font-semibold text-fg"
               >
                 {item}
               </li>
@@ -105,33 +107,34 @@ function Home() {
 
         <section
           id="book"
-          className="rounded-[var(--radius-lg)] border border-border bg-ink px-5 py-8 text-surface sm:px-8"
+          className="cr-card cr-zone-card"
+          style={{ marginTop: "2.25rem", color: "#1e2d40" }}
         >
-          <h2 className="font-display text-3xl uppercase tracking-[0.06em] text-surface">{CLE.bookHeading}</h2>
-          <p className="mt-3 max-w-2xl text-sm text-gold-soft">{CLE.bookIntro}</p>
-          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+          <h2 className="cr-h2">{CLE.bookHeading}</h2>
+          <p className="cr-body" style={{ color: "#4a5567" }}>{CLE.bookIntro}</p>
+          <div className="mt-6 grid gap-4 lg:grid-cols-2">
             {CLE.groups.map((g) => (
-              <div key={g.label} className="rounded-[var(--radius-md)] border border-faint/30 bg-fg p-5">
-                <p className="text-xs font-bold uppercase tracking-[0.08em] text-gold">{g.label}</p>
-                <p className="mt-2 font-display text-3xl text-surface">{g.price}</p>
-                <p className="mt-1 text-sm text-surface/80">{g.sub}</p>
-                <Button className="mt-6 w-full" variant="primary" asChild>
-                  <a href={g.href} target="_blank" rel="noreferrer">
+              <div key={g.label} className="cr-card" style={{ background: "#f3f0eb" }}>
+                <p className="cr-kicker">{g.label}</p>
+                <p className="mt-2 font-display text-3xl text-ink">{g.price}</p>
+                <p className="mt-1" style={{ color: "#1e2d40" }}>{g.sub}</p>
+                <div className="mt-5">
+                  <a className="cr-btn" href={g.href} target="_blank" rel="noreferrer">
                     {g.cta}
                   </a>
-                </Button>
+                </div>
               </div>
             ))}
           </div>
-          <p className="mt-6 max-w-3xl text-sm text-gold-soft">{CLE.availability}</p>
-          <p className="mt-2 max-w-3xl text-sm text-gold-soft">{CLE.coming}</p>
+          <p className="mt-5 max-w-3xl" style={{ color: "#4a5567" }}>{CLE.availability}</p>
+          <p className="mt-1 max-w-3xl" style={{ color: "#4a5567" }}>{CLE.coming}</p>
         </section>
 
-        <section aria-labelledby="terms-heading" className="border-t border-border pt-10">
-          <h2 id="terms-heading" className="text-2xl">
+        <section aria-labelledby="terms-heading" className="cr-zone">
+          <h2 id="terms-heading" className="cr-h2">
             Terms
           </h2>
-          <div className="mt-4 max-w-3xl space-y-2 text-sm text-muted">
+          <div className="cr-body space-y-2" style={{ color: "#4a5567" }}>
             {CLE.terms.map((line) => (
               <p key={line}>{line}</p>
             ))}

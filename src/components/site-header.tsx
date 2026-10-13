@@ -1,9 +1,9 @@
 import { practiceNav } from "@/lib/nav";
 
+const CURRENT = "Lunch & Learn";
+
 export function SiteHeader({
-  bookHref = "#book",
   tagline = "Lunch & Learn",
-  bookLabel = "Book the presentation",
 }: {
   bookHref?: string;
   tagline?: string;
@@ -11,43 +11,42 @@ export function SiteHeader({
   current?: boolean;
 }) {
   return (
-    <header className="border-b border-border bg-bg">
-      <nav aria-label="Carlton Research" className="border-b border-border">
-        <div className="mx-auto flex max-w-6xl items-stretch gap-5 overflow-x-auto px-5 sm:px-8">
+    <header className="cr-header">
+      <div className="cr-header-inner">
+        <a href="/" className="cr-brand">
+          <img src="/favicon.png" width={40} height={40} alt="" decoding="async" className="cr-brand-mark" />
+          <span className="cr-brand-text">
+            <span className="cr-wordmark">Carlton Research, LLC</span>
+            <span className="cr-kicker-head">{tagline}</span>
+          </span>
+        </a>
+        <nav aria-label="Carlton Research" className="cr-nav-desktop">
           {practiceNav.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="shrink-0 py-3 text-sm text-muted hover:text-ink"
+              aria-current={item.label === CURRENT ? "page" : undefined}
+              className="cr-nav-link"
             >
               {item.label}
             </a>
           ))}
-        </div>
-      </nav>
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-5 py-4 sm:px-8">
-        <a href="/" className="flex shrink-0 items-center gap-3 no-underline">
-          <img
-            src="/favicon.png"
-            width={40}
-            height={40}
-            alt=""
-            decoding="async"
-            className="h-10 w-10 shrink-0 object-contain"
-          />
-          <span className="flex min-w-0 flex-col leading-tight">
-            <span className="font-display text-lg text-ink">Carlton Research, LLC</span>
-            <span className="mt-0.5 text-xs font-bold uppercase tracking-widest text-primary">
-              {tagline}
-            </span>
-          </span>
-        </a>
-        <a
-          href={bookHref}
-          className="shrink-0 text-sm font-semibold text-primary underline underline-offset-4 hover:text-ink"
-        >
-          {bookLabel}
-        </a>
+        </nav>
+        <details className="cr-nav-mobile">
+          <summary className="cr-menu-btn">Menu</summary>
+          <nav aria-label="Carlton Research" className="cr-drawer">
+            {practiceNav.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                aria-current={item.label === CURRENT ? "page" : undefined}
+                className="cr-nav-link"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </details>
       </div>
     </header>
   );

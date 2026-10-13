@@ -49,7 +49,7 @@
   body {
     font-family: var(--font-sans);
     font-size: 1.0625rem;
-    line-height: 1.55;
+    line-height: 1.6;
     font-weight: 400;
   }
 
@@ -89,6 +89,73 @@
   :focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .cr-header { background: var(--color-bg); border-top: 3px solid #d7a975; border-bottom: 1px solid #dbb28b; position: relative; }
+  .cr-header-inner { max-width: 1290px; margin: 0 auto; padding: 0 24px; min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .cr-brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; min-width: 0; }
+  .cr-brand-mark { width: 40px; height: 40px; object-fit: contain; flex-shrink: 0; }
+  .cr-brand-text { display: flex; flex-direction: column; min-width: 0; }
+  .cr-wordmark { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; line-height: 1.15; letter-spacing: 0.01em; color: #1e2d40; white-space: nowrap; }
+  .cr-kicker-head { margin-top: 0.12rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6f2430; white-space: nowrap; }
+  .cr-nav-desktop { display: flex; gap: 0; align-items: center; }
+  .cr-nav-link { font-size: 0.8125rem; line-height: 20.8px; font-weight: 600; letter-spacing: 0.01em; color: #090a0c; padding: 0.35em 0.42em; text-decoration: none; white-space: nowrap; }
+  .cr-nav-link:hover { color: #6f2430; }
+  .cr-nav-link[aria-current="page"] { color: #6f2430; }
+  .cr-nav-mobile { display: none; }
+  .cr-menu-btn { list-style: none; font-size: 0.95rem; font-weight: 600; color: #1e2d40; border: 1px solid #1e2d40; border-radius: 6px; padding: 0.45rem 0.7rem; line-height: 1; cursor: pointer; }
+  .cr-menu-btn::-webkit-details-marker { display: none; }
+  .cr-drawer { position: absolute; left: 0; right: 0; top: 100%; z-index: 50; background: var(--color-bg); border-bottom: 1px solid #dbb28b; display: flex; flex-direction: column; padding: 8px 24px 16px; }
+  .cr-drawer .cr-nav-link { font-size: 1rem; padding: 0.6em 0; }
+  @media (max-width: 1024px) {
+    .cr-nav-desktop { display: none; }
+    .cr-nav-mobile { display: block; }
+  }
+  @media (max-width: 767px) {
+    .cr-brand-mark { width: 32px; height: 32px; }
+    .cr-wordmark { font-size: 0.95rem; }
+  }
+
+  .cr-main { width: 100%; max-width: 70rem; margin: 0 auto; padding: 20px 1.25rem 3rem; }
+  .cr-hero { padding-top: 20px; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(219, 178, 139, 0.55); margin-bottom: 2rem; text-align: left; }
+  .cr-body { font-size: 17px; line-height: 27.2px; color: #1e2d40; max-width: 68ch; }
+  .cr-zone { margin-top: 2.25rem; padding-top: 1.75rem; border-top: 1px solid rgba(132, 145, 154, 0.22); }
+  .cr-h2 { font-family: var(--font-sans); font-weight: 600; font-size: clamp(1.3rem, 2.2vw, 1.7rem); line-height: 1.5; margin: 0 0 13.6px; color: var(--color-ink); text-transform: none; letter-spacing: normal; }
+  .cr-kicker { font-size: 0.78rem; line-height: 1.6; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6f2430; }
+  .cr-card { background: #f8f7f3; border: 1px solid #dbb28b; border-radius: 2px; padding: 1.2rem 1.25rem; }
+  .cr-card-title { font-family: var(--font-sans); font-size: 1.2rem; line-height: 1.5; font-weight: 600; color: #090a0c; }
+  .cr-card-text { font-size: 17px; line-height: 27.2px; color: #4a5567; }
+  .cr-grid3 { display: grid; gap: 16px; grid-template-columns: 1fr; }
+  @media (min-width: 900px) { .cr-grid3 { grid-template-columns: repeat(3, 1fr); } }
+  .cr-panel { background: #f8f7f3; border: 1px solid #dbb28b; border-radius: 2px; padding: 1.25rem 1.35rem; }
+  .cr-services-list li { position: relative; border-radius: 12px; border: 1px solid rgba(219, 178, 139, 0.35); background: rgba(248, 247, 243, 0.7); padding: 13.6px 16px 13.6px 21.6px; font-size: 17px; font-weight: 400; color: #1e2d40; display: flex; align-items: center; }
+  .cr-services-list li::before { content: ""; position: absolute; left: 8px; top: 50%; width: 6px; height: 6px; margin-top: -3px; border-radius: 50%; background: #6f2430; }
+  .cr-btn { display: inline-flex; align-items: center; justify-content: center; width: auto; background: #6f2430; color: #f8f7f3; font-size: 0.95rem; line-height: 1.6; font-weight: 600; letter-spacing: 0.01em; padding: 0.65rem 1.1rem; border-radius: 4px; text-decoration: none; }
+  .cr-btn:hover { background: #5a1d27; }
+  .cr-link { color: #6f2430; text-decoration: underline; text-decoration-color: #dbb28b; text-underline-offset: 0.18em; }
+
+  .cr-footer { margin-top: auto; background: var(--color-bg); font-size: 17px; line-height: 27.2px; color: #1e2d40; }
+  .cr-footer-top, .cr-footer-note, .cr-footer-legal-inner { max-width: 1290px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+  .cr-footer-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 24px; flex-wrap: wrap; }
+  .cr-footer-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0; }
+  .cr-footer-nav a { color: #6f2430; padding: 0.3em 0.75em; text-decoration: none; }
+  .cr-footer-nav a:hover { text-decoration: underline; text-decoration-color: #dbb28b; }
+  .cr-footer-note { padding-top: 12px; padding-bottom: 16px; }
+  .cr-footer-note p { max-width: 68ch; }
+  .cr-footer-legal { border-top: 1px solid #d7a975; padding-top: 0.85rem; padding-bottom: 20px; }
+  .cr-footer-legal-inner { display: flex; flex-wrap: wrap; align-items: center; column-gap: 12px; row-gap: 6px; }
+  .cr-tagline { font-size: 0.9em; font-weight: 600; color: #d7a975; }
+  .cr-legal-group { display: inline-flex; flex-wrap: wrap; align-items: center; column-gap: 8px; }
+  .cr-dot { color: #84919a; }
+  .cr-linkedin { margin-left: auto; color: #6f2430; display: inline-flex; }
+  @media (max-width: 767px) {
+    .cr-footer-top { flex-direction: column; align-items: flex-start; }
+    .cr-footer-nav { justify-content: flex-start; margin-left: -0.75em; }
+    .cr-linkedin { margin-left: 0; }
+    .cr-dot { display: none; }
+    .cr-legal-group { column-gap: 14px; }
   }
 }
 
