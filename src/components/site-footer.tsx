@@ -20,7 +20,7 @@ export function SiteFooter({ note }: { note?: string } = {}) {
           {note ?? <>Lunch & Learn is a proprietary program of {FIRM}. All rights reserved. {TERMS.notCle}</>}
         </p>
         <nav aria-label="Carlton Research" className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
-          {practiceNav.map((item) => (
+          {practiceNav.filter((item) => item.label !== "Evidence Vault").map((item) => (
             <a key={item.href} href={item.href} className="text-muted hover:text-ink hover:underline">
               {item.label}
             </a>
