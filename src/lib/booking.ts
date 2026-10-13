@@ -132,7 +132,7 @@ export const CLE = {
   coming: "Coming December 2026: Missouri, Alaska, Hawaii, and New Jersey",
   terms: [
     "Course length: 120 minutes",
-    "Credit: 2.0 CLE hours",
+    "Credit: 2.0 CLE hours (More credits in some jurisdictions)",
     "Fee: $700 per group of 5; $1,400 per group of 10",
     "Payment: payable upon booking",
     "Cancel 14 days or more ahead: full refund.",
