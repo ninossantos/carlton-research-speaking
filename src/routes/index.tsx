@@ -34,6 +34,7 @@ function Home() {
           </p>
           <p className="mx-auto mt-2 max-w-2xl text-lg text-fg">{CLE.format}</p>
           <p className="mx-auto mt-4 max-w-3xl text-sm text-muted">{CLE.intro}</p>
+          <p className="mx-auto mt-2 max-w-3xl text-sm text-muted">{CLE.availability}</p>
         </section>
 
         {CLE_VIDEO_YOUTUBE_ID || CLE_VIDEO_PLACEHOLDER ? (
@@ -123,8 +124,6 @@ function Home() {
               </div>
             ))}
           </div>
-          <p className="mt-6 max-w-3xl text-sm text-gold-soft">{CLE.availability}</p>
-          <p className="mt-2 max-w-3xl text-sm text-gold-soft">{CLE.coming}</p>
         </section>
 
         <section aria-labelledby="terms-heading" className="border-t border-border pt-10">
