@@ -128,7 +128,7 @@ export const CLE = {
     { label: "Group of 5", price: "$700", sub: "Group Price for up to 5 Attorneys", cta: "Book for 5 Attorneys", href: TIDYCAL_CLE_GROUP_5 },
     { label: "Group of 10", price: "$1,400", sub: "Group Price for up to 10 Attorneys", cta: "Book for 10 Attorneys", href: TIDYCAL_CLE_GROUP_10 },
   ],
-  availability: "Currently available as a CLE in Alaska, Arizona, Connecticut, Hawaii, Missouri, New Hampshire, and New Jersey.",
+  availability: "Currently available as a CLE in Alaska, Arizona, Connecticut, Missouri, New Hampshire, and New Jersey.",
   coming: "Coming December 2026: Missouri, Alaska, Hawaii, and New Jersey",
   terms: [
     "Course length: 120 minutes",
