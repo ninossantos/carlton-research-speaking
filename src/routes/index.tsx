@@ -124,6 +124,7 @@ function Home() {
               </div>
             ))}
           </div>
+          <p className="mt-6 max-w-3xl text-sm text-gold-soft">{CLE.availability}</p>
         </section>
 
         <section aria-labelledby="terms-heading" className="border-t border-border pt-10">
